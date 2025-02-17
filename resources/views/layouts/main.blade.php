@@ -26,6 +26,7 @@
 </head>
 <body class="app">
 @yield('content')
+
 <script type="module" src="{{ asset('js/test.js') }}"></script>
 @yield('scripts')
 </body>
