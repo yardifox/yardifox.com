@@ -1,0 +1,13 @@
+{
+  "resources/js/app.js": {
+    "file": "assets/app-CqflisoM.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/sass/yardi.css": {
+    "file": "assets/yardi-BQThMh3X.css",
+    "src": "resources/sass/yardi.css",
+    "isEntry": true
+  }
+}
