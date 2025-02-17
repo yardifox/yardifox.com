@@ -17,7 +17,9 @@ camera.position.z = 5;
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
-document.body.appendChild( renderer.domElement );
+let insertElm = document.getElementById('workCont');
+insertElm.insertAdjacentElement('afterend',renderer.domElement);
+//document.body.appendChild( renderer.domElement );
 
 
 function animate() {

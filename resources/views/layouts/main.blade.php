@@ -25,27 +25,6 @@
     @yield('head')
 </head>
 <body class="app">
-    <div class="header">
-        @yield('header')
-    </div>
-    <div class="wrap">
-        <div class="section platformer">
-
-        </div>
-        <div class="section attract">
-
-        </div>
-        <div class="section work">
-
-        </div>
-        <div class="section contact">
-
-        </div>
-    </div>
-    <div class="footer">
-
-    </div>
-
 @yield('content')
 <script type="module" src="{{ asset('js/test.js') }}"></script>
 @yield('scripts')
