@@ -44,7 +44,9 @@ const hemiLight = new THREE.HemisphereLight(0x0099ff, 0xaa5500);
 scene.add(hemiLight);
 
 const renderer = new THREE.WebGLRenderer();
+
 renderer.setSize( w, h );
+
 let insertElm = document.getElementById('workCont');
 insertElm.insertAdjacentElement('afterend',renderer.domElement);
 //document.body.appendChild( renderer.domElement );

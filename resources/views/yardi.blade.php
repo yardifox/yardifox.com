@@ -18,6 +18,10 @@
                 </div>
             </div>
             <div id="paneShadow"></div>
+
+        </div>
+        <div class="section attract">
+            <h1>Test</h1>
         </div>
         <div class="section work" id="workCont">
 
