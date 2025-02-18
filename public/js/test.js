@@ -16,15 +16,21 @@ scene.add( cube );
 camera.position.z = 5;
 
 const renderer = new THREE.WebGLRenderer();
-renderer.setSize( window.innerWidth, window.innerHeight );
+renderer.setSize( window.innerWidth - 15, window.innerHeight );
 let insertElm = document.getElementById('workCont');
 insertElm.insertAdjacentElement('afterend',renderer.domElement);
 //document.body.appendChild( renderer.domElement );
 
 
+function resizeStage(){
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix()
+    renderer.setSize( window.innerWidth - 15, window.innerHeight );
+}
 function animate() {
     renderer.render( scene, camera );
 }
+window.addEventListener('resize', resizeStage);
 renderer.setAnimationLoop( animate );
 
 console.log(THREE);
