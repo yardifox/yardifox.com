@@ -1,26 +1,57 @@
 import * as THREE from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { OrbitControls } from "jsm/controls/OrbitControls.js";
+
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 // const controls = new OrbitControls( camera, renderer.domElement );
 // const loader = new GLTFLoader();
 
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+const w = window.innerWidth;
+const h = window.innerHeight;
+
+const fov = 75;
+const aspect = w / h;
+const near = 0.1;
+const far = 50;
+const camera = new THREE.PerspectiveCamera( fov, aspect, near, far );
 
 const geometry = new THREE.BoxGeometry( 1, 1, 1 );
 const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
 const cube = new THREE.Mesh( geometry, material );
-scene.add( cube );
+//scene.add( cube );
 
 camera.position.z = 5;
 
+
+
+const geo = new THREE.IcosahedronGeometry(1.0, 2);
+
+const mat = new THREE.MeshStandardMaterial({
+    color: 0xffffff,
+    flatShading: true,
+});
+const mesh = new THREE.Mesh(geo, mat);
+scene.add(mesh);
+
+const wireMat = new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true })
+const wireMesh = new THREE.Mesh(geo, wireMat);
+wireMesh.scale.setScalar(1.0001);
+mesh.add(wireMesh);
+
+const hemiLight = new THREE.HemisphereLight(0x0099ff, 0xaa5500);
+scene.add(hemiLight);
+
 const renderer = new THREE.WebGLRenderer();
-renderer.setSize( window.innerWidth - 15, window.innerHeight );
+renderer.setSize( w, h );
 let insertElm = document.getElementById('workCont');
 insertElm.insertAdjacentElement('afterend',renderer.domElement);
 //document.body.appendChild( renderer.domElement );
 
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.04;
 
 function resizeStage(){
     camera.aspect = window.innerWidth / window.innerHeight;
@@ -29,6 +60,7 @@ function resizeStage(){
 }
 function animate() {
     renderer.render( scene, camera );
+    controls.update();
 }
 window.addEventListener('resize', resizeStage);
 renderer.setAnimationLoop( animate );

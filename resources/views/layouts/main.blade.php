@@ -11,7 +11,8 @@
         {
           "imports": {
             "three": "/js/three/three.module.js",
-            "three/addons/": "/js/three/jsm/"
+            "three/addons/": "/js/three/jsm/",
+            "jsm/": "/js/three/jsm/"
           }
         }
     </script>
