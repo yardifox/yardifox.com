@@ -1,7 +1,8 @@
 import * as THREE from 'three';
 import { OrbitControls } from "jsm/controls/OrbitControls.js";
+import { GLTFLoader } from "jsm/loaders/GLTFLoader.js";
 
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+// import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 // const controls = new OrbitControls( camera, renderer.domElement );
 // const loader = new GLTFLoader();
@@ -24,7 +25,7 @@ const cube = new THREE.Mesh( geometry, material );
 
 camera.position.z = 5;
 
-
+const loader = new GLTFLoader();
 
 const geo = new THREE.IcosahedronGeometry(1.0, 2);
 
@@ -54,6 +55,12 @@ insertElm.insertAdjacentElement('afterend',renderer.domElement);
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.dampingFactor = 0.04;
+
+loader.load( './js/sgb_test.glb', (gltf) =>{
+    scene.add(gltf.scene);
+}, undefined, (error) => {
+  console.log(error);
+});
 
 function resizeStage(){
     camera.aspect = window.innerWidth / window.innerHeight;
