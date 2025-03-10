@@ -15,23 +15,28 @@ class ApiController extends Controller
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
             CURLOPT_TIMEOUT => 0,
+            CURLOPT_SSL_VERIFYPEER => 0,
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'GET',
         ));
 
-        $response = curl_exec($curl);
+        $response = json_decode(curl_exec($curl));
 
         curl_close($curl);
 
         $res = [
           'success' => true,
-          'feed'    => $response
+          'feed'    => $response->feed
         ];
         return response()->json($res, 200,[])
             ->header('Access-Control-Allow-Methods', 'GET, POST,PATCH, PUT, DELETE, OPTIONS, OPTION')
             ->header('Access-Control-Allow-Headers',' Origin, X-Auth-Token Content-Type, Accept, Authorization, X-Token-Auth, X-Request-With')
             ->header('Cache-Control','no-cache, must-revalidate')
             ->header('Access-Control-Allow-Credentials',' false');
+    }
+
+    protected  function utf8_urldecode($str) {
+        return html_entity_decode(preg_replace("/%u([0-9a-f]{3,4})/i", "&#x\\1;", urldecode($str)), null, 'UTF-8');
     }
 }
