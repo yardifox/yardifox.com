@@ -25,7 +25,23 @@
 
         </div>
         <div class="section contact">
+            <div class="col l-col">
+                <form>
+                    <label>
+                        <input type="text" placeholder="Name"/>
+                    </label>
+                    <label>
+                        <input type="text" placeholder="Name"/>
+                    </label>
+                    <label>
+                        <textarea placeholder="Message"></textarea>
+                    </label>
+                    <button type="submit">Get In Touch</button>
+                </form>
+            </div>
+            <div class="cal r-col">
 
+            </div>
         </div>
     </div>
     <div class="footer">
