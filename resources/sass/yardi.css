@@ -97,5 +97,8 @@ html body.app .wrap .section.work {
 html body.app .wrap .section.contact {
   min-height: 300px;
 }
+html body.app .wrap #threeDom {
+  width: 100% !important;
+}
 
 /*# sourceMappingURL=yardi.css.map */

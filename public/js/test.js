@@ -54,6 +54,7 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize( w, h );
 
 let insertElm = document.getElementById('workCont');
+renderer.domElement.id = "threeDom";
 insertElm.insertAdjacentElement('afterend',renderer.domElement);
 //document.body.appendChild( renderer.domElement );
 
