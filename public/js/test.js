@@ -39,12 +39,12 @@ const mat = new THREE.MeshStandardMaterial({
     flatShading: true,
 });
 const mesh = new THREE.Mesh(geo, mat);
-scene.add(mesh);
+// scene.add(mesh);
 
 const wireMat = new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true })
 const wireMesh = new THREE.Mesh(geo, wireMat);
-wireMesh.scale.setScalar(1.0001);
-mesh.add(wireMesh);
+// wireMesh.scale.setScalar(1.0001);
+// mesh.add(wireMesh);
 
 const hemiLight = new THREE.HemisphereLight(0xffffff, 0xaa5500);
 scene.add(hemiLight);
@@ -64,10 +64,13 @@ insertElm.insertAdjacentElement('afterend',renderer.domElement);
 
 let sgb = null;
 
-loader.load( './js/sgb_test.glb', (gltf) =>{
+loader.load( './js/castle.glb', (gltf) =>{
+
     sgb = gltf.scene;
-    //sgb.center();
+    // sgb = sgb.children[0];
     scene.add(sgb)
+    console.log(sgb);
+    sgb.scale.setScalar(10);
 }, undefined, (error) => {
   console.log(error);
 });
@@ -86,9 +89,9 @@ function animate() {
     camera.position.y = scrollPosY * 2;
     if(sgb){
         sgb.rotation.y -= (sgb.rotation.y - (goalPos * 1.0)) * 0.1;
-        sgb.rotation.x -= (sgb.rotation.x - (goalPos * 0.2)) * 0.2;
+        sgb.rotation.x -= (sgb.rotation.x - (goalPos * 0.02)) * 0.2;
     }
-    console.log(`scrollPosY: %c${scrollPosY}`, "color: #ffff00");
+    //console.log(`scrollPosY: %c${scrollPosY}`, "color: #ffff00");
     //controls.update();
 }
 window.addEventListener('resize', resizeStage);
