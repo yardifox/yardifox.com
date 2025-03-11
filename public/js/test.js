@@ -39,7 +39,55 @@ const mat = new THREE.MeshStandardMaterial({
     flatShading: true,
 });
 const mesh = new THREE.Mesh(geo, mat);
-// scene.add(mesh);
+//scene.add(mesh);
+
+// Background
+let buffgeoBack  = new THREE.IcosahedronGeometry(40,2);
+buffgeoBack.center();
+var simpleMaterial = new THREE.MeshBasicMaterial( {
+    // map:[
+    //     [0.75,0.6,0.4,0.25],
+    //     ['#1B1D1E', '#3D4143', '#72797D', '#b0babf']
+    // ],
+    color:0x74b0d2,
+    side:THREE.BackSide,
+    flatShading: true,
+})
+var m = new THREE.ShaderMaterial({
+    uniforms: {
+        color1: {
+            value: new THREE.Color(0x040792)
+        },
+        color2: {
+            value: new THREE.Color(0x99C6F7)
+        }
+    },
+    side:THREE.BackSide,
+    vertexShader: `
+    varying vec2 vUv;
+
+    void main() {
+      vUv = uv;
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0);
+    }
+  `,
+    fragmentShader: `
+    uniform vec3 color1;
+    uniform vec3 color2;
+
+    varying vec2 vUv;
+
+    void main() {
+
+      gl_FragColor = vec4(mix(color1, color2, vUv.y), 1.0);
+    }
+  `,
+    wireframe: false
+});
+let back = new THREE.Mesh(buffgeoBack, m);
+
+console.log(back);
+scene.add(back);
 
 const wireMat = new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true })
 const wireMesh = new THREE.Mesh(geo, wireMat);
