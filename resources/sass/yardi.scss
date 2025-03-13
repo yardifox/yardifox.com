@@ -6,6 +6,7 @@ html{
         position: relative;
         margin:0;
         overflow:hidden;
+        overflow-y:auto;
         &.app{
             .header{
 
