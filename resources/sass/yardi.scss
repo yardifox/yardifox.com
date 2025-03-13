@@ -107,7 +107,7 @@ html{
                     &.contact{
 
                         min-height: 300px;
-                        padding-bottom:80px;
+                        padding-bottom:180px;
                     }
                 }
                 #threeDom{
@@ -132,7 +132,7 @@ html{
 
                 svg{
                     transition:0.3s ease;
-
+                    transform:scale(0.75);
                     -webkit-filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
                     filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
                     &:hover{
