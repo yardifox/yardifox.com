@@ -116,14 +116,13 @@ html body.app .footer {
   */
   display: flex;
   justify-content: center;
-  height: 80px;
+  height: 155px;
   position: fixed;
-  bottom: 0px;
+  bottom: -87px;
   align-items: flex-start;
 }
 html body.app .footer svg {
   transition: 0.3s ease;
-  margin-top: -30px;
   -webkit-filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.7));
   filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.7));
 }
