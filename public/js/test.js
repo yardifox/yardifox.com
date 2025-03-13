@@ -25,9 +25,12 @@ const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
 const cube = new THREE.Mesh( geometry, material );
 //scene.add( cube );
 
+
+
 camera.position.z = 15;
 camera.position.x = 2;
 camera.position.y = 1;
+// camera.rotation.x = -5;
 
 const loader = new GLTFLoader();
 let scrollPosY = 0;
@@ -88,13 +91,21 @@ let back = new THREE.Mesh(buffgeoBack, m);
 
 console.log(back);
 scene.add(back);
-
+// Point Light
+const light = new THREE.PointLight(0xffffff, 500, 200);
+light.position.set(3,10,20);
+light.castShadow = true;
+light.shadow.mapSize.width = 4096;
+light.shadow.mapSize.height = 4096;
+scene.add(light);
 const wireMat = new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true })
 const wireMesh = new THREE.Mesh(geo, wireMat);
 // wireMesh.scale.setScalar(1.0001);
 // mesh.add(wireMesh);
 
 const hemiLight = new THREE.HemisphereLight(0xffffff, 0xaa5500);
+hemiLight.castShadow = true;
+
 scene.add(hemiLight);
 
 const renderer = new THREE.WebGLRenderer();
@@ -111,14 +122,20 @@ insertElm.insertAdjacentElement('afterend',renderer.domElement);
 // controls.dampingFactor = 0.04;
 
 let sgb = null;
-
+var clock, mixer;
 loader.load( './js/castle.glb', (gltf) =>{
-
+    console.log('gltf');
+    console.log(gltf);
+    if (gltf.animations.length > 0) {
+        mixer = new THREE.AnimationMixer( gltf.scene );
+        gltf.animations.forEach( clip => { mixer.clipAction( clip ).loop = THREE.LoopRepeat; } );
+        mixer.clipAction( gltf.animations[ 0 ] ).play();
+    }
     sgb = gltf.scene;
     // sgb = sgb.children[0];
     scene.add(sgb)
     console.log(sgb);
-    sgb.scale.setScalar(10);
+    sgb.scale.setScalar(12);
 }, undefined, (error) => {
   console.log(error);
 });
@@ -130,8 +147,9 @@ function resizeStage(){
 }
 
 let goalPos = 0;
-function animate() {
+function animate(d) {
     goalPos = Math.PI * scrollPosY;
+    if ( mixer ) mixer.update( 0.05 );
     renderer.render( scene, camera );
     camera.position.z = scrollPosY * 12;
     camera.position.y = scrollPosY * 2;
