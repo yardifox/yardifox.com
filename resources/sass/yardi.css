@@ -116,10 +116,9 @@ html body.app .footer {
   */
   display: flex;
   justify-content: center;
-  height: 155px;
+  height: 80px;
   position: fixed;
-  bottom: -87px;
-  align-items: flex-start;
+  bottom: 0;
 }
 html body.app .footer svg {
   transition: 0.3s ease;
