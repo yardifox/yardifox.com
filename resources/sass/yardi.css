@@ -131,16 +131,23 @@ html body.app .footer svg:hover {
 }
 html body.app .footer button,
 html body.app .footer a {
-  flex: 0 1 300px;
+  position: relative;
+  height: 150px;
+  width: 200px;
+  /*
+  flex:0 1 300px;
   border: 0 solid red;
   border-left-width: 500px;
   border-top-width: 30px;
   border-top-color: transparent;
+
   width: 500px;
   border-bottom-width: 150px;
   border-right-width: 30px;
   border-right-color: transparent;
-  background-color: red;
+  background-color:red;
+
+   */
 }
 
 /*# sourceMappingURL=yardi.css.map */
