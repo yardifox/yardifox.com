@@ -149,7 +149,7 @@
                 };
 
                 magnetise = () => {
-                    document.querySelector("#footer").addEventListener("mousemove", (e) => {
+                    document.querySelector("body").addEventListener("mousemove", (e) => {
                         this.cursorX = e.clientX;
                         this.cursorY = e.offsetY;
                         console.log("cursorX",e.clientX);
