@@ -45,7 +45,7 @@
         </div>
     </div>
     <div class="footer">
-        <svg class="navBtn" viewBox="266.5,143.5,391,178" xmlns="http://www.w3.org/2000/svg" style="margin-top: -50px;max-width: 160px;cursor: pointer;">
+        <svg class="navBtn" viewBox="266.5,143.5,391,178" xmlns="http://www.w3.org/2000/svg" style="max-width: 160px;cursor: pointer;">
             <g>
                 <path fill="#FF0066" d="M267,144l390,47l-8,98l-356,32z"></path>
                 <text x="375" y="250" font-family="Verdana" font-size="50" fill="white">Work</text>

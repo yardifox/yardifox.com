@@ -14,7 +14,9 @@ html{
             .wrap{
                 position: relative;
                 height: 100%;
+                /*
                 padding-bottom:80px;
+                */
                 .section{
                     width: 100%;
                     box-sizing: border-box;
@@ -105,7 +107,7 @@ html{
                     &.contact{
 
                         min-height: 300px;
-
+                        padding-bottom:80px;
                     }
                 }
                 #threeDom{
@@ -115,22 +117,24 @@ html{
             .footer{
                 left:0;
                 right:0;
+                /*
                 background: rgb(4,69,7);
                 background: linear-gradient(180deg, rgba(4,69,7,1) 0%, rgba(51,134,45,1) 100%);
                 box-shadow: inset 7px 9px 19px rgba(0, 0, 0, 0.5);
+                */
                 display:flex;
                 justify-content: center;
 
 
-                height: 155px;
+                height: 80px;
                 position: fixed;
-                bottom: -87px;
-                
+                bottom: 0px;
+
                 align-items: flex-start;
 
                 svg{
                     transition:0.3s ease;
-
+                    margin-top: -30px;
                     -webkit-filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
                     filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
                     &:hover{
