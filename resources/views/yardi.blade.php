@@ -24,7 +24,7 @@
         <div class="section work" id="workCont">
 
         </div>
-        <div class="section contact">
+        <div class="section contact" id="contactCont">
             <div class="col l-col">
                 <form>
                     <label>
@@ -45,7 +45,7 @@
         </div>
     </div>
     <div class="footer">
-        <svg class="navBtn" viewBox="266.5,143.5,391,178" xmlns="http://www.w3.org/2000/svg" style="margin-top: -50px;max-width: 160px;cursor: pointer;">
+        <svg class="navBtn" id="navBtnWork" viewBox="266.5,143.5,391,178" xmlns="http://www.w3.org/2000/svg" style="margin-top: -50px;max-width: 160px;cursor: pointer;">
             <g>
                 <path fill="#FF0066" d="M267,144l390,47l-8,98l-356,32z"></path>
                 <text x="375" y="250" font-family="Verdana" font-size="50" fill="white">Work</text>
@@ -60,6 +60,7 @@
             const el = (sel, par) => (par || document).querySelector(sel);
             const elWrap = el("#attractWrap");
             const elTilt = el("#infoPane");
+            const navWork = el("#navBtnWork");
             const settings = {
                 reverse: 1,        // Reverse tilt: 1, 0
                 max: 20,           // Max tilt: 35
@@ -95,8 +96,14 @@
                 `;
             }
 
+            const scrollToWork = (evt) =>{
+                const element = document.getElementById('contactCont');
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+
             elWrap.addEventListener("mousemove", tilt);
             elWrap.addEventListener("mouseleave", recenter);
+            navWork.addEventListener("click", scrollToWork);
             console.log('elWrap');
             console.log(elWrap);
         })()
