@@ -104,9 +104,6 @@ html body.app .wrap #threeDom {
   width: 100% !important;
 }
 html body.app .footer {
-  height: 80px;
-  position: fixed;
-  bottom: 0;
   left: 0;
   right: 0;
   background: rgb(4, 69, 7);
@@ -114,6 +111,10 @@ html body.app .footer {
   box-shadow: inset 7px 9px 19px rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
+  height: 155px;
+  position: fixed;
+  bottom: -87px;
+  align-items: flex-start;
 }
 html body.app .footer svg {
   transition: 0.3s ease;
