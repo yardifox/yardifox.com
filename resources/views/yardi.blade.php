@@ -92,6 +92,11 @@
 
             elWrap.style.perspective = `${settings.perspective}px`;
 
+            const touchesMoved = (evt) => {
+                console.log('touches Moved');
+                console.log(evt);
+            }
+
             const tilt = (evt) => {
 
                 const bcr = elWrap.getBoundingClientRect();
@@ -142,6 +147,7 @@
                 })
             }
             document.body.addEventListener('touchstart',touchTilt);
+            document.body.addEventListener('touchmove',touchTilt);
             elWrap.addEventListener("mousemove", tilt);
             elWrap.addEventListener("mouseleave", recenter);
             navWork.addEventListener("click", scrollToWork);
