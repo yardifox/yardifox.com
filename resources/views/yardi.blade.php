@@ -125,7 +125,7 @@
                     behavior: 'smooth',
                 })
             }
-            document.body.addEventListener('touchmove',tilt);
+            document.body.addEventListener('touchstart',tilt);
             elWrap.addEventListener("mousemove", tilt);
             elWrap.addEventListener("mouseleave", recenter);
             navWork.addEventListener("click", scrollToWork);
