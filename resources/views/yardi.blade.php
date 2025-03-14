@@ -24,25 +24,23 @@
         <div class="section work" id="workCont">
 
         </div>
-        <div class="contact-wrap">
-            <div class="section contact" id="contactCont">
-                <div class="col l-col">
-                    <form>
-                        <label>
-                            <input type="text" placeholder="Name"/>
-                        </label>
-                        <label>
-                            <input type="text" placeholder="Name"/>
-                        </label>
-                        <label>
-                            <textarea placeholder="Message"></textarea>
-                        </label>
-                        <button type="submit">Get In Touch</button>
-                    </form>
-                </div>
-                <div class="cal r-col">
+        <div class="section contact" id="contactCont">
+            <div class="col l-col">
+                <form>
+                    <label>
+                        <input type="text" placeholder="Name"/>
+                    </label>
+                    <label>
+                        <input type="text" placeholder="Name"/>
+                    </label>
+                    <label>
+                        <textarea placeholder="Message"></textarea>
+                    </label>
+                    <button type="submit">Get In Touch</button>
+                </form>
+            </div>
+            <div class="cal r-col">
 
-                </div>
             </div>
         </div>
     </div>

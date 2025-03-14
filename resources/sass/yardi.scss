@@ -104,8 +104,7 @@ html{
                     &.work{
                         min-height: 300px;
                     }
-                    &.contact-wrap{
-                        overflow-x:hidden;
+
                         &.contact{
 
                             min-height: 300px;
@@ -114,6 +113,8 @@ html{
                             &:before{
                                 position: absolute;
                                 content: "";
+                                max-width:100% !important;
+                                display:block;
                                 width: 100%;
                                 height: 0px;
                                 border-top: 11px solid transparent;
@@ -125,7 +126,6 @@ html{
                                 left: 0;
                             }
                         }
-                    }
                 }
                 #threeDom{
                     width:100% !important;
