@@ -103,28 +103,47 @@ html{
                     }
                     &.work{
                         min-height: 300px;
+                        position:relative;
+                        z-index:1;
+                        &:before{
+                            position: absolute;
+                            content: "";
+                            display: block;
+                            width: 128%;
+                            max-width: 100%;
+                            height: 0px;
+                            border-top: 44px solid white;
+                            border-left: 0px solid white;
+                            border-bottom: 8px solid transparent;
+                            border-right: 700px solid transparent;
+                            left: 0;
+                            z-index: 2;
+                            bottom: -50px;
+                            -webkit-filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, .7));
+                            filter: drop-shadow(17px 14px 5px rgba(0, 0, 0, .37));
+                        }
                     }
 
-                        &.contact{
+                    &.contact{
 
-                            min-height: 300px;
-                            padding-bottom:180px;
-                            position:relative;
-                            &:before{
-                                position: absolute;
-                                content: "";
-                                max-width:100% !important;
-                                display:block;
-                                width: 100%;
-                                height: 0px;
-                                border-top: 11px solid transparent;
-                                border-left: 671px solid transparent;
-                                border-bottom: 39px solid white;
-                                border-right: 323px solid white;
-                                top: -49px;
-                                right: 0px;
-                            }
+                        min-height: 300px;
+                        padding-bottom:180px;
+                        position:relative;
+                        &:before{
+                            position: absolute;
+                            content: "";
+                            max-width:100% !important;
+                            display:block;
+                            width: 100%;
+                            height: 0px;
+                            border-top: 11px solid transparent;
+                            border-left: 671px solid transparent;
+                            border-bottom: 39px solid white;
+                            border-right: 323px solid white;
+                            top: -49px;
+                            right: 0px;
                         }
+                    }
                 }
                 #threeDom{
                     width:100% !important;
@@ -133,6 +152,7 @@ html{
             .footer{
                 left:0;
                 right:0;
+                z-index:5;
                 /*
                 background: rgb(4,69,7);
                 background: linear-gradient(180deg, rgba(4,69,7,1) 0%, rgba(51,134,45,1) 100%);
