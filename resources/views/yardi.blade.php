@@ -108,7 +108,7 @@
               `;
             }
             const touchTilt = (evt) => {
-                alert('touchTilt')
+                console.log('touchTilt')
                 console.log(evt);
                 const bcr = elWrap.getBoundingClientRect();
                 const x = Math.min(1, Math.max(0, (evt.clientX - bcr.left) / bcr.width));
