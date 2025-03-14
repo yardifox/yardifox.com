@@ -108,6 +108,20 @@ html{
 
                         min-height: 300px;
                         padding-bottom:180px;
+                        position:relative;
+                        &:before{
+                            position: absolute;
+                            content: "";
+                            width: 100%;
+                            height: 0px;
+                            border-top: 11px solid transparent;
+                            border-left: 671px solid transparent;
+                            border-bottom: 39px solid white;
+                            border-right: 323px solid white;
+                            top: -49px;
+                            right: 0px;
+                            left: 0;
+                        }
                     }
                 }
                 #threeDom{

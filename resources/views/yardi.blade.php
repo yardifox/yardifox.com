@@ -57,8 +57,26 @@
     </div>
 @endsection
 @section('scripts')
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script> -->
     <script type="text/javascript">
+        document.addEventListener('scroll', gsaplaunch);
+        document.addEventListener('mousedown', gsaplaunch);
+        document.addEventListener('mousemove', gsaplaunch);
+        document.addEventListener('touchstart', gsaplaunch);
+        document.addEventListener('scroll', gsaplaunch);
+        document.addEventListener('keydown', gsaplaunch);
+        function gsaplaunch () {
+            window.$gsap||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set._.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute('charset','utf-8');
+                $.src='//cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js';z.t=+new Date;$.type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
+
+            document.removeEventListener('scroll', gsaplaunch);
+            document.removeEventListener('mousedown', gsaplaunch);
+            document.removeEventListener('mousemove', gsaplaunch);
+            document.removeEventListener('touchstart', gsaplaunch);
+            document.removeEventListener('scroll', gsaplaunch);
+            document.removeEventListener('keydown', gsaplaunch);
+        }
+        let navBtnArray = [];
         (function(){
             const el = (sel, par) => (par || document).querySelector(sel);
             const elWrap = el("#attractWrap");
@@ -123,6 +141,7 @@
                     this.top = this.button.offsetTop;
                     this.x = 0;
                     this.y = 0;
+                    this.center = {};
                     this.cursorX = 0;
                     this.cursorY = 0;
                     this.magneticPullX = 0.4;
@@ -148,29 +167,41 @@
                     });
                 };
 
+                resetCenter = (e) =>{
+                   this.center = {
+                        x: this.button.offsetLeft + this.width / 2,
+                        y: this.button.offsetTop + this.height / 2
+                    };
+                   this.left = this.button.offsetLeft;
+                   this.top = this.button.offsetTop;
+                   console.log('this.left: ', this.button.offsetLeft);
+                   console.log('this.top: ', this.button.offsetTop);
+                   console.log(this.center);
+                }
                 magnetise = () => {
+                    document.querySelector("body").removeEventListener("mousemove",this.magnetise);
                     document.querySelector("body").addEventListener("mousemove", (e) => {
                         this.cursorX = e.clientX;
                         this.cursorY = e.offsetY;
-                        console.log("cursorX",e.clientX);
-                        console.log("cursorY",e.offsetY);
+                        // console.log("cursorX",e.clientX);
+                        // console.log("cursorY",e.offsetY);
 
-                        const center = {
+                        this.center = {
                             x: this.left + this.width / 2,
                             y: this.top + this.height / 2
                         };
-                        console.log('left',this.left);
-                        console.log('top',this.top);
+                        // console.log('left',this.left);
+                        // console.log('top',this.top);
 
-                        this.x = this.cursorX - center.x;
-                        this.y = this.cursorY - center.y;
-                        console.log("center.x",center.x);
-                        console.log("center.y",center.y);
+                        this.x = this.cursorX - this.center.x;
+                        this.y = this.cursorY -  this.center.y;
+                        // console.log("center.x",center.x);
+                        // console.log("center.y",center.y);
 
                         const distance = Math.sqrt(this.x * this.x + this.y * this.y);
                         const hoverArea = this.isHovering ? 0.6 : 0.5;
 
-                        console.log('distance',distance);
+                        // console.log('distance',distance);
 
                         if (distance < this.width * hoverArea) {
                             if (!this.isHovering) {
@@ -216,8 +247,18 @@
 
             const buttons = document.getElementsByClassName("rippleBtn");
             for (const button of buttons) {
-                new Button(button);
+                const btnObj = new Button(button);
+                navBtnArray.push( btnObj );
+                console.log(navBtnArray);
             }
+
         })()
+        window.addEventListener('resize', (e)=>{
+            for (const button of navBtnArray) {
+                button.resetCenter(e);
+                // button.magnetise();
+                console.log('button',button);
+            }
+        });
     </script>
 @endsection
