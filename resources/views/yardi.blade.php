@@ -126,9 +126,10 @@
                 })
             }
 
-            elWrap.addEventListener("mousemove,touchmove", tilt);
+            elWrap.addEventListener("mousemove", tilt);
+            elWrap.addEventListener("touchmove ", tilt);
             elWrap.addEventListener("mouseleave", recenter);
-            navWork.addEventListener("click,touchend", scrollToWork);
+            navWork.addEventListener("click", scrollToWork);
             console.log('elWrap');
             console.log(elWrap);
 
