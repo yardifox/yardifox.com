@@ -95,21 +95,21 @@ html body.app .wrap .section.attract #paneShadow {
 html body.app .wrap .section.work {
   min-height: 300px;
 }
-html body.app .wrap .section.contact {
-  min-height: 300px;
-}
 html body.app .wrap .section.attract {
   min-height: 300px;
 }
 html body.app .wrap .section.work {
   min-height: 300px;
 }
-html body.app .wrap .section.contact {
+html body.app .wrap .section.contact-wrap {
+  overflow-x: hidden;
+}
+html body.app .wrap .section.contact-wrap.contact {
   min-height: 300px;
   padding-bottom: 180px;
   position: relative;
 }
-html body.app .wrap .section.contact:before {
+html body.app .wrap .section.contact-wrap.contact:before {
   position: absolute;
   content: "";
   width: 100%;
