@@ -12,6 +12,7 @@ html body {
 html body.app {
   max-width: 100% !important;
   overflow-x: hidden;
+  position: relative;
 }
 html body.app .wrap {
   position: relative;
