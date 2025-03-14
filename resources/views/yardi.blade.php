@@ -111,8 +111,8 @@
                 console.log('touchTilt')
                 console.log(evt);
                 const bcr = elWrap.getBoundingClientRect();
-                const x = Math.min(1, Math.max(0, (evt.clientX - bcr.left) / bcr.width));
-                const y = Math.min(1, Math.max(0, (evt.clientY - bcr.top) / bcr.height));
+                const x = Math.min(1, Math.max(0, (evt.pageX - bcr.left) / bcr.width));
+                const y = Math.min(1, Math.max(0, (evt.pageY - bcr.top) / bcr.height));
                 const reverse = settings.reverse ? -1 : 1;
                 const tiltX = reverse * (settings.max / 2 - x * settings.max);
                 const tiltY = reverse * (y * settings.max - settings.max / 2);
