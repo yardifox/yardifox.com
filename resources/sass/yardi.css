@@ -10,6 +10,7 @@ html body {
   overflow-y: auto;
 }
 html body.app {
+  max-width: 100% !important;
   overflow-x: hidden;
 }
 html body.app .wrap {
@@ -133,6 +134,7 @@ html body.app .footer {
   */
   display: flex;
   justify-content: center;
+  max-width: 100% !important;
   height: 80px;
   position: fixed;
   bottom: 0;

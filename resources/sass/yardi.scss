@@ -8,6 +8,7 @@ html{
         overflow-x:hidden;
         overflow-y:auto;
         &.app{
+            max-width:100% !important;
             overflow-x:hidden;
             .header{
 
@@ -140,7 +141,7 @@ html{
                 display:flex;
                 justify-content: center;
 
-
+                max-width:100% !important;
                 height: 80px;
                 position: fixed;
                 bottom: 0;
