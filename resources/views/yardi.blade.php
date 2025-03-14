@@ -107,6 +107,20 @@
                 scale(${settings.scale})
               `;
             }
+            const touchTilt = (evt) => {
+                const bcr = elWrap.getBoundingClientRect();
+                const x = Math.min(1, Math.max(0, (evt.clientX - bcr.left) / bcr.width));
+                const y = Math.min(1, Math.max(0, (evt.clientY - bcr.top) / bcr.height));
+                const reverse = settings.reverse ? -1 : 1;
+                const tiltX = reverse * (settings.max / 2 - x * settings.max);
+                const tiltY = reverse * (y * settings.max - settings.max / 2);
+                elTilt.style.transition = `.3s ease`;
+                elTilt.style.transform = `
+                rotateX(${settings.axis === "x" ? 0 : tiltY}deg)
+                rotateY(${settings.axis === "y" ? 0 : tiltX}deg)
+                scale(${settings.scale})
+              `;
+            }
             const recenter = (evt) => {
 
                 elTilt.style.transition = `.3s ease`;
@@ -125,7 +139,7 @@
                     behavior: 'smooth',
                 })
             }
-            document.body.addEventListener('touchstart',tilt);
+            document.body.addEventListener('touchstart',touchTilt);
             elWrap.addEventListener("mousemove", tilt);
             elWrap.addEventListener("mouseleave", recenter);
             navWork.addEventListener("click", scrollToWork);
