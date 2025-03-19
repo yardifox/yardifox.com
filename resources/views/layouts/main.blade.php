@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Yardi Fox</title>
+    <link href="/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="/img/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
+    <link href="/img/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
+    <link href="/img/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152">
+    <link href="/img/apple-touch-icon-167x167.png" rel="apple-touch-icon" sizes="167x167">
+    <link href="/img/apple-touch-icon-180x180.png" rel="apple-touch-icon" sizes="180x180">
+    <link href="/img/icon-hires.png" rel="icon" sizes="192x192">
+    <link href="/img/icon-normal.png" rel="icon" sizes="128x128">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico">
+    <link rel="shortcut icon" href="/favicon.ico">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-W9HNZTT4TX"></script>
     <script>

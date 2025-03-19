@@ -3,6 +3,23 @@
     <div class="header">
         @yield('header')
     </div>
+    <header class="header" id="header">
+        <button class="rippleBtn" id="navBtnAbout">
+            About
+        </button>
+        <button class="rippleBtn" style="background:transparent;">
+            <svg class="navBtn" id="navBtnWork" viewBox="266.5,143.5,391,178" xmlns="http://www.w3.org/2000/svg" style="margin-top: -50px;max-width: 160px;cursor: pointer;">
+                <g>
+                    <path fill="#FF0066" d="M267,144l390,47l-8,98l-356,32z"></path>
+                    <text x="375" y="250" font-family="Verdana" font-size="50" fill="white">Work</text>
+
+                </g>
+            </svg>
+        </button>
+        <button class="rippleBtn"  id="navBtnContact">
+            Contact
+        </button>
+    </header>
     <div class="wrap">
         <div class="section platformer">
                 (0.0)
@@ -31,12 +48,12 @@
                         <input type="text" placeholder="Name"/>
                     </label>
                     <label>
-                        <input type="text" placeholder="Name"/>
+                        <input type="text" placeholder="Email"/>
                     </label>
                     <label>
                         <textarea placeholder="Message"></textarea>
                     </label>
-                    <button type="submit">Get In Touch</button>
+                    <button type="submit" class="threeDTitle">Get In Touch</button>
                 </form>
             </div>
             <div class="cal r-col">
@@ -45,15 +62,6 @@
         </div>
     </div>
     <div class="footer" id="footer">
-        <button class="rippleBtn" style="background:transparent;">
-        <svg class="navBtn" id="navBtnWork" viewBox="266.5,143.5,391,178" xmlns="http://www.w3.org/2000/svg" style="margin-top: -50px;max-width: 160px;cursor: pointer;">
-            <g>
-                <path fill="#FF0066" d="M267,144l390,47l-8,98l-356,32z"></path>
-                <text x="375" y="250" font-family="Verdana" font-size="50" fill="white">Work</text>
-
-            </g>
-        </svg>
-        </button>
     </div>
 @endsection
 @section('scripts')
@@ -82,6 +90,8 @@
             const elWrap = el("#attractWrap");
             const elTilt = el("#infoPane");
             const navWork = el("#navBtnWork");
+            const navAbout = el("#navBtnAbout");
+            const navContact = el("#navBtnContact");
             const settings = {
                 reverse: 1,        // Reverse tilt: 1, 0
                 max: 20,           // Max tilt: 35
@@ -146,11 +156,30 @@
                     behavior: 'smooth',
                 })
             }
+            const scrollToContact = (evt)=>{
+                const element = document.getElementById('contactCont');
+                // element.scrollIntoView({ behavior: 'smooth' });
+                window.scrollTo({
+                    top: Math.round(element.getBoundingClientRect().top + document.documentElement.scrollTop),
+                    behavior: 'smooth',
+                })
+            }
+            const scrollToAbout = (evt)=>{
+
+                const element = document.getElementById('attractWrap');
+                // element.scrollIntoView({ behavior: 'smooth' });
+                window.scrollTo({
+                    top: Math.round(element.getBoundingClientRect().top + document.documentElement.scrollTop),
+                    behavior: 'smooth',
+                })
+            }
             document.body.addEventListener('touchstart',touchTilt);
             document.body.addEventListener('touchmove',touchTilt);
             elWrap.addEventListener("mousemove", tilt);
             elWrap.addEventListener("mouseleave", recenter);
             navWork.addEventListener("click", scrollToWork);
+            navAbout.addEventListener("click", scrollToAbout);
+            navContact.addEventListener("click", scrollToWork);
             console.log('elWrap');
             console.log(elWrap);
 

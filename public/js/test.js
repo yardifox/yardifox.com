@@ -56,6 +56,7 @@ var simpleMaterial = new THREE.MeshBasicMaterial( {
     side:THREE.BackSide,
     flatShading: true,
 })
+
 var m = new THREE.ShaderMaterial({
     uniforms: {
         color1: {
@@ -88,9 +89,9 @@ var m = new THREE.ShaderMaterial({
     wireframe: false
 });
 let back = new THREE.Mesh(buffgeoBack, m);
+scene.add(back);
 
 console.log(back);
-scene.add(back);
 // Point Light
 const light = new THREE.PointLight(0xffffff, 500, 200);
 light.position.set(3,10,20);
@@ -105,12 +106,11 @@ const wireMesh = new THREE.Mesh(geo, wireMat);
 
 const hemiLight = new THREE.HemisphereLight(0xffffff, 0xaa5500);
 hemiLight.castShadow = true;
-
 scene.add(hemiLight);
 
 const renderer = new THREE.WebGLRenderer();
-
 renderer.setSize( w, h );
+
 
 let insertElm = document.getElementById('workCont');
 renderer.domElement.id = "threeDom";
