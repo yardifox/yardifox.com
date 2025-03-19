@@ -149,10 +149,10 @@
             }
 
             const scrollToWork = (evt) =>{
-                const element = document.getElementById('contactCont');
+                const element = document.getElementById('threeDom');
                 // element.scrollIntoView({ behavior: 'smooth' });
                 window.scrollTo({
-                    top: Math.round(element.getBoundingClientRect().top + document.documentElement.scrollTop),
+                    top: Math.round(element.getBoundingClientRect().top + document.documentElement.scrollTop) +150,
                     behavior: 'smooth',
                 })
             }
@@ -179,7 +179,7 @@
             elWrap.addEventListener("mouseleave", recenter);
             navWork.addEventListener("click", scrollToWork);
             navAbout.addEventListener("click", scrollToAbout);
-            navContact.addEventListener("click", scrollToWork);
+            navContact.addEventListener("click", scrollToContact);
             console.log('elWrap');
             console.log(elWrap);
 
