@@ -1,4 +1,39 @@
 @extends('layouts.main')
+@section('head')
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "ProfilePage",
+            "dateCreated": "2025-1-10T12:30:00-05:00",
+            "dateModified": "2025-3-19T12:30:00-05:00",
+            "mainEntity":{
+                "@type": "Person",
+                "name": "Yardi Fox",
+                "alternateName": "yardifox",
+                "interactionStatistic":[{
+                    "@type": "InteractionCounter",
+                    "interactionType": "https://schema.org/LikeAction",
+                    "userInteractionCount": 1
+                }],
+                "agentInteractionStatistic": {
+                  "@type": "InteractionCounter",
+                  "interactionType": "https://schema.org/DrawAction",
+                  "userInteractionCount": 50
+                },
+                "description": "FullStack Creative Developer",
+                "image": "https://media.licdn.com/dms/image/v2/C4E03AQEFU3ZDPqnmFg/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1516305256323?e=1747872000&v=beta&t=KEt_LNHA2uNsSitBzinz4-Yv5h6Tsq4iqb1QPvIhSow",
+                "sameAs": [
+                  "https://www.linkedin.com/in/yardi/",
+                  "https://x.com/yardifox",
+                  "https://github.com/yardifox",
+                  "https://in.pinterest.com/yardifox/",
+                  "https://developer.apple.com/forums/profile/yardifox",
+                  "https://www.mobygames.com/person/201612/yardi-fox/"
+                ]
+            }
+        }
+    </script>
+@endsection
 @section('content')
     <div class="header">
         @yield('header')
