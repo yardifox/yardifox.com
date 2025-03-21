@@ -26,7 +26,9 @@
                   "https://www.linkedin.com/in/yardi/",
                   "https://x.com/yardifox",
                   "https://github.com/yardifox",
+                  "https://www.instagram.com/yardifox/",
                   "https://in.pinterest.com/yardifox/",
+                  "https://bsky.app/profile/yardifox.bsky.social",
                   "https://developer.apple.com/forums/profile/yardifox",
                   "https://www.mobygames.com/person/201612/yardi-fox/"
                 ]
