@@ -35,6 +35,15 @@ html body.app .wrap .section.platformer {
   z-index: 99;
   pointer-events: none;
 }
+html body.app .wrap .section.platformer #ninjaSprite {
+  width: 95px;
+  height: 95px;
+  background-color: blue;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
 html body.app .wrap .section.attract {
   min-height: 300px;
   height: 100%;

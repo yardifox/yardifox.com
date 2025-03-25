@@ -32,6 +32,15 @@ html{
                         right: 0;
                         z-index:99;
                         pointer-events:none;
+                        #ninjaSprite{
+                            width:95px;
+                            height:95px;
+                            background-color:blue;
+                            display:flex;
+                            justify-content: center;
+                            align-content: center;
+                            align-items: center;
+                        }
                     }
                     &.attract{
                         min-height: 300px;
