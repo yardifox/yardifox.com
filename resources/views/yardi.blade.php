@@ -402,8 +402,8 @@
                 }
             })
             setInterval(function Gravity(){
-                vy += 0.09;
-            },20)
+                vy += 0.12;
+            },5)
 
         })();
     </script>
