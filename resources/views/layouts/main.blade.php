@@ -15,6 +15,7 @@
     <link href="/img/icon-hires.png" rel="icon" sizes="192x192">
     <link href="/img/icon-normal.png" rel="icon" sizes="128x128">
     <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico">
+    <link rel="canonical" href="https://yardifox.com" itemprop="url">
     <link rel="shortcut icon" href="/favicon.ico">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-W9HNZTT4TX"></script>
@@ -25,6 +26,7 @@
 
         gtag('config', 'G-W9HNZTT4TX');
     </script>
+    <script src="https://analytics.ahrefs.com/analytics.js" data-key="7dgUzbEPMnrhPnUJI9uR9Q" async></script>
     <script type="importmap">
         {
           "imports": {
