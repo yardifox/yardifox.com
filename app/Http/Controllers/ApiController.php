@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ApiController extends Controller
 {
@@ -38,5 +39,49 @@ class ApiController extends Controller
 
     protected  function utf8_urldecode($str) {
         return html_entity_decode(preg_replace("/%u([0-9a-f]{3,4})/i", "&#x\\1;", urldecode($str)), null, 'UTF-8');
+    }
+
+    public function contact(Request $request){
+        $data   = $request->all();
+        $to     = "yardifox@gmail.com";
+        $content =<<<HTML
+
+HTML;
+
+        $mailData = [
+            'email' => $to,
+          'content' => $content,
+               'cc' => false
+        ];
+        try{
+            $mres = Mail::send(
+                'mail.contact',
+                 $mailData,
+                function($msg) use($mailData){
+                    if($mailData['cc']){
+                        $msg->cc($mailData['cc']);
+                    }
+                    $msg->to($mailData['email'])->submect('New yardifox.com Contact');
+                    $msg->attachData(
+                        $mailData['content']
+                    );
+
+                });
+            $res = [
+                'success' => true,
+                'res'     => $mres
+            ];
+        }catch(\Exception $e){
+            $res = [
+                'success' => false,
+                'error'   => $e->getMessage(),
+            ];
+        }
+
+        return response()->json($res, 200,['Access-Control-Allow-Origin'=>'*'])
+            ->header('Access-Control-Allow-Origin','*')
+            ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
+            ->header('Access-Control-Allow-Headers',' Origin, Content-Type, Accept, Authorization, X-Token-Auth, X-Request-With')
+            ->header('Access-Control-Allow-Credentials',' true');
     }
 }

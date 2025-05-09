@@ -67,7 +67,8 @@ html{
                         .panel{
                             /* width: 60vw; */
 
-                            height: 450px;
+                            min-height: 450px;
+                            height: auto;
                             box-sizing: border-box;
                             padding: 40px;
                             width: 600px;
@@ -76,7 +77,16 @@ html{
                             position: relative;
                             max-width: 100%;
                             max-height: 90% !important;
-
+                            background-image: linear-gradient(111.15deg, #0060f07c, #00040a99 92.78%), linear-gradient(112.99deg, #76afbbf2 -19.03%, #082162f2 102.17%);
+                            background-origin: padding-box, padding-box;
+                            background-position-x: 0, 0;
+                            background-position-y: 0, 0;
+                            background-repeat: repeat, repeat;
+                            background-size: cover, cover;
+                            color: #fff;
+                            border-top: 2px solid rgb(171, 194, 221);
+                            border-left: 1px solid rgb(110, 159, 216);
+                            text-shadow: 1px 1px 2px rgba(0, 0, 0, .7);
                             /*
                             &:after{
                                 content: " ";
@@ -135,6 +145,7 @@ html{
                         min-height: 300px;
                         padding-bottom:180px;
                         position:relative;
+                        text-align:center;
                         &:before{
                             position: absolute;
                             content: "";
@@ -162,7 +173,9 @@ html{
                                         padding: 20px;
                                         box-shadow: 3px 3px 13px rgba(0, 0, 0, 0.23);
                                         flex: 1 100%;
-                                        width: 250px;
+                                        min-width: 250px;
+                                        width: 37vw;
+                                        max-width: 450px;
                                     }
                                 }
                                 textarea{
@@ -171,6 +184,8 @@ html{
                                     padding: 20px;
                                     box-shadow: 3px 3px 13px rgba(0, 0, 0, 0.23);
                                     min-width: 250px;
+                                    width: 37vw;
+                                    max-width: 450px;
                                     min-height:112px;
                                 }
                             }
@@ -268,7 +283,7 @@ html{
                 font-size: 49px;
                 font-family: sans-serif;
                 color: #d9d9d9;
-                margin: 5px 10px;
+                margin: 5px auto;
                 -webkit-transition: 0.4s;
                 -moz-transition: 0.4s;
                 -o-transition: 0.4s;
