@@ -45,8 +45,8 @@ html body.app .wrap .section.platformer #ninjaSprite {
   align-items: center;
 }
 html body.app .wrap .section.attract {
-  min-height: 300px;
-  height: 100%;
+  min-height: 100% !important;
+  height: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
