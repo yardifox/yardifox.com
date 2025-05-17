@@ -4,6 +4,7 @@
     <?php header('Access-Control-Allow-Origin: *'); ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="facebook-domain-verification" content="685dy4dttb7274uh0c1te479irp774" />
 
     <title>Yardi Fox</title>
     <link href="/img/apple-touch-icon.png" rel="apple-touch-icon">
