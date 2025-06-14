@@ -42,7 +42,13 @@
     </div>
     <header class="header" id="header">
         <button class="rippleBtn" id="navBtnAbout">
-            About
+
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2.25 -2.635 13.31 5.045" style="margin-top: -50px;max-width: 160px;cursor: pointer;">
+                <g>
+                <path d="M 11.057 -2.635 L 10.521 1.435 L 10.959 2.41 L -1.665 0.948 L -2.25 -1.635 L -2.08 -2.074 Z" fill="#FF0066"/>
+                <text x="11" y="11" font-family="Verdana" font-size="50" fill="white">About</text>
+                </g>
+            </svg>
         </button>
         <button class="rippleBtn" style="background:transparent;">
             <svg class="navBtn" id="navBtnWork" viewBox="266.5,143.5,391,178" xmlns="http://www.w3.org/2000/svg" style="margin-top: -50px;max-width: 160px;cursor: pointer;">

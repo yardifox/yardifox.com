@@ -61,7 +61,7 @@ HTML;
                     if($mailData['cc']){
                         $msg->cc($mailData['cc']);
                     }
-                    $msg->to($mailData['email'])->submect('New yardifox.com Contact');
+                    $msg->to($mailData['email'])->subject('New yardifox.com Contact');
                     $msg->attachData(
                         $mailData['content']
                     );
