@@ -390,8 +390,8 @@
                     sy = (window.innerHeight + Math.round(window.scrollY) - spriteHeight );
                     vy = 0;
                 }
-                console.log((window.innerHeight + Math.round(window.scrollY)));
-                console.log(sy + spriteHeight);
+                // console.log((window.innerHeight + Math.round(window.scrollY)));
+                // console.log(sy + spriteHeight);
 
                 ninja.style.left = sx + 'px';
                 ninja.style.top = sy+ 'px';
