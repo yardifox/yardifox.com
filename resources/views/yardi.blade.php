@@ -422,7 +422,7 @@
             if(!cForm)
                 return;
 
-            cForm.addEventListener(('submit', (e)=>{
+            cForm.addEventListener('submit', (e)=>{
                 e.preventDefault();
 
                 const formData = new FormData(cForm);
@@ -440,7 +440,7 @@
                 .then( response => response.json())
                 .then(json => console.log('Response: ', json))
                 .catch(error => console.error('Error: ', error));
-            }));
+            });
         })();
     </script>
 @endsection
