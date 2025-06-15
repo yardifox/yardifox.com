@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Mail\Message;
 
 class ApiController extends Controller
 {
@@ -63,13 +64,15 @@ HTML;
                 'mail.contact',
                  $mailData,
                 function($msg) use($mailData){
+                    /* @var $msg \Illuminate\Mail\Message */
                     if($mailData['cc']){
                         $msg->cc($mailData['cc']);
                     }
                     $msg->to($mailData['email'])->subject('New yardifox.com Contact');
-                    $msg->attachData(
-                        $mailData['content']
-                    );
+                    $msg->html($mailData['content']);
+//                    $msg->attachData(
+//                        $mailData['content'] // Incorrect: this is used to attach binary data attachment with the second param the name of attachment
+//                    );
 
                 });
             $res = [
