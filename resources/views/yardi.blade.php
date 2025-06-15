@@ -89,7 +89,7 @@
         </div>
         <div class="section contact" id="contactCont">
             <div class="col l-col">
-                <form>
+                <form class="" id="ypContactForm">
                     <label>
                         <input type="text" placeholder="Name"/>
                     </label>
@@ -99,7 +99,7 @@
                     <label>
                         <textarea placeholder="Message"></textarea>
                     </label>
-                    <button type="submit" class="threeDTitle">Get In Touch</button>
+                    <button id="contSubmit" type="submit" class="threeDTitle">Get In Touch</button>
                 </form>
             </div>
             <div class="cal r-col">
@@ -366,6 +366,9 @@
             }
         });
 
+        /**
+         * Ninja Character code
+         */
         (function(){
 
             console.log('ninja.js loaded');
@@ -414,6 +417,30 @@
                 vy += 0.12;
             },5)
 
+            // Contact Form submission handling
+            const cForm = document.getElementById('ypContactForm');
+            if(!cForm)
+                return;
+
+            cForm.addEventListener(('submit', (e)=>{
+                e.preventDefault();
+
+                const formData = new FormData(cForm);
+                const data = Object.fromEntries(formData.entries());
+
+                fetch('{{route("api.contact.post")}}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then( response => response.json())
+                .then(json => console.log('Response: ', json))
+                .catch(error => console.error('Error: ', error));
+            }));
         })();
     </script>
 @endsection
