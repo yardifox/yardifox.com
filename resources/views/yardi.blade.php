@@ -426,7 +426,10 @@
                 e.preventDefault();
 
                 const formData = new FormData(cForm);
+                console.log(cForm);
+                console.log(formData);
                 const data = Object.fromEntries(formData.entries());
+                console.log(data);
 
                 fetch('{{route("api.contact.post")}}', {
                     method: 'POST',
