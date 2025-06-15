@@ -43,6 +43,18 @@ class ApiController extends Controller
     }
 
     public function contact(Request $request){
+        $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+            'secret'   => env('RECAPTCHA_SECRET_KEY'),
+            'response' => $request->input('g-recaptcha-response'),
+        ]);
+
+        if (!data_get($response->json(), 'success')) {
+            return response()->json([
+                'success' => false,
+                'error' => 'reCAPTCHA verification failed.',
+            ], 422);
+        }
+
         $data   = $request->all();
         $to     = "yardifox@gmail.com";
         $name  = $data['name'];

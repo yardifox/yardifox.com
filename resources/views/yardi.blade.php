@@ -35,6 +35,7 @@
             }
         }
     </script>
+    <script src="https://www.google.com/recaptcha/api.js?render=explicit" async defer></script>
 @endsection
 @section('content')
     <div class="header">
@@ -99,6 +100,11 @@
                     <label>
                         <textarea name="message" placeholder="Message"></textarea>
                     </label>
+                    <div class="g-recaptcha"
+                         data-sitekey="6Lc-S2ErAAAAADZNX3frKgGJ95Ns-VKUEhwrKjLN"
+                         data-callback="onSubmit"
+                         data-size="invisible">
+                    </div>
                     <button id="contSubmit" type="submit" class="threeDTitle">Get In Touch</button>
                 </form>
             </div>
@@ -114,6 +120,13 @@
     <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script type="text/javascript" src="{{ asset("/js/ninja.js")}}"/>-->
     <script type="text/javascript">
+        function onLoadCallback() {
+            grecaptcha.render(document.querySelector('.g-recaptcha'), {
+                sitekey: '6Lc-S2ErAAAAADZNX3frKgGJ95Ns-VKUEhwrKjLN',
+                callback: onSubmit,
+                size: 'invisible'
+            });
+        }
         let loadButtons = null;
         document.addEventListener('scroll', gsaplaunch);
         document.addEventListener('mousedown', gsaplaunch);
@@ -422,9 +435,7 @@
             if(!cForm)
                 return;
 
-            cForm.addEventListener('submit', (e)=>{
-                e.preventDefault();
-
+            function onSubmit(token){
                 const formData = new FormData(cForm);
                 console.log(cForm);
                 console.log(formData);
@@ -440,9 +451,14 @@
                     },
                     body: JSON.stringify(data)
                 })
-                .then( response => response.json())
-                .then(json => console.log('Response: ', json))
-                .catch(error => console.error('Error: ', error));
+                    .then( response => response.json())
+                    .then(json => console.log('Response: ', json))
+                    .catch(error => console.error('Error: ', error));
+            }
+
+            cForm.addEventListener('submit', (e)=>{
+                e.preventDefault();
+                grecaptcha.execute();
             });
         })();
     </script>
