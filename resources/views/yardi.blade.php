@@ -35,7 +35,8 @@
             }
         }
     </script>
-    <script src="https://www.google.com/recaptcha/api.js?render=explicit" async defer></script>
+    <!-- Google Invisible reCAPTCHA v2 -->
+    <script src="https://www.google.com/recaptcha/api.js?onload=onLoadCallback&render=explicit" async defer></script>
 @endsection
 @section('content')
     <div class="header">
@@ -437,9 +438,11 @@
 
             function onSubmit(token){
                 const formData = new FormData(cForm);
+                formData.append('g-recaptcha-response', token);
                 console.log(cForm);
                 console.log(formData);
                 const data = Object.fromEntries(formData.entries());
+
                 console.log(data);
 
                 fetch('{{route("api.contact.post")}}', {
