@@ -121,6 +121,8 @@
     <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script type="text/javascript" src="{{ asset("/js/ninja.js")}}"/>-->
     <script type="text/javascript">
+        // Contact Form submission handling
+        const cForm = document.getElementById('ypContactForm');
         function onLoadCallback() {
             grecaptcha.render(document.querySelector('.g-recaptcha'), {
                 sitekey: '6Lc-S2ErAAAAADZNX3frKgGJ95Ns-VKUEhwrKjLN',
@@ -128,6 +130,30 @@
                 size: 'invisible'
             });
         }
+
+        function onSubmit(token){
+            const formData = new FormData(cForm);
+            formData.append('g-recaptcha-response', token);
+            console.log(cForm);
+            console.log(formData);
+            const data = Object.fromEntries(formData.entries());
+
+            console.log(data);
+
+            fetch('{{route("api.contact.post")}}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                },
+                body: JSON.stringify(data)
+            })
+                .then( response => response.json())
+                .then(json => console.log('Response: ', json))
+                .catch(error => console.error('Error: ', error));
+        }
+
         let loadButtons = null;
         document.addEventListener('scroll', gsaplaunch);
         document.addEventListener('mousedown', gsaplaunch);
@@ -431,33 +457,6 @@
                 vy += 0.12;
             },5)
 
-            // Contact Form submission handling
-            const cForm = document.getElementById('ypContactForm');
-            if(!cForm)
-                return;
-
-            function onSubmit(token){
-                const formData = new FormData(cForm);
-                formData.append('g-recaptcha-response', token);
-                console.log(cForm);
-                console.log(formData);
-                const data = Object.fromEntries(formData.entries());
-
-                console.log(data);
-
-                fetch('{{route("api.contact.post")}}', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json',
-                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                    },
-                    body: JSON.stringify(data)
-                })
-                    .then( response => response.json())
-                    .then(json => console.log('Response: ', json))
-                    .catch(error => console.error('Error: ', error));
-            }
 
             cForm.addEventListener('submit', (e)=>{
                 e.preventDefault();
