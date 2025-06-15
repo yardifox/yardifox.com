@@ -91,13 +91,13 @@
             <div class="col l-col">
                 <form class="" id="ypContactForm">
                     <label>
-                        <input type="text" placeholder="Name"/>
+                        <input type="text" name="name" placeholder="Name"/>
                     </label>
                     <label>
-                        <input type="text" placeholder="Email"/>
+                        <input type="text" name="email" placeholder="Email"/>
                     </label>
                     <label>
-                        <textarea placeholder="Message"></textarea>
+                        <textarea name="message" placeholder="Message"></textarea>
                     </label>
                     <button id="contSubmit" type="submit" class="threeDTitle">Get In Touch</button>
                 </form>

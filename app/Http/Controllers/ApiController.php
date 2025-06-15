@@ -44,8 +44,13 @@ class ApiController extends Controller
     public function contact(Request $request){
         $data   = $request->all();
         $to     = "yardifox@gmail.com";
+        $name  = $data['name'];
+        $email = $data['email'];
+        $msg   = $data['message'];
         $content =<<<HTML
-
+        <div>$name</div>
+        <div>$email</div>
+        <div>$msg</div>
 HTML;
 
         $mailData = [
