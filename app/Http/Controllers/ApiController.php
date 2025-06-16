@@ -81,9 +81,9 @@ HTML;
                     /* @var $msg \Illuminate\Mail\Message */
                     if($mailData['cc']){
                         $msg->cc($mailData['cc']);
-                        $msg->replyTo($mailData['from'],'Contact');
                     }
                     $msg->to($mailData['email'])->subject('New yardifox.com Contact');
+                    $msg->replyTo($mailData['from'],'Contact');
                     $msg->html($mailData['content']);
 //                    $msg->attachData(
 //                        $mailData['content'] // Incorrect: this is used to attach binary data attachment with the second param the name of attachment
