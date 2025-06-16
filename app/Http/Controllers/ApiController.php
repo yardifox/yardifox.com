@@ -68,6 +68,7 @@ class ApiController extends Controller
 HTML;
 
         $mailData = [
+            'name'  => $name,
             'from'  => $email,
             'email' => $to,
           'content' => $content,
@@ -83,7 +84,7 @@ HTML;
                         $msg->cc($mailData['cc']);
                     }
                     $msg->to($mailData['email'])->subject('New yardifox.com Contact');
-                    $msg->replyTo($mailData['from'],'Contact');
+                    $msg->replyTo($mailData['from'],$mailData['name']);
                     $msg->html($mailData['content']);
 //                    $msg->attachData(
 //                        $mailData['content'] // Incorrect: this is used to attach binary data attachment with the second param the name of attachment

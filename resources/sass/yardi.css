@@ -14,6 +14,9 @@ html body.app {
   overflow-x: hidden;
   position: relative;
 }
+html body.app .header {
+  z-index: 6;
+}
 html body.app .wrap {
   position: relative;
   height: 100%;
@@ -194,6 +197,7 @@ html body.app .wrap .section.contact form .grecaptcha-badge {
 }
 html body.app .wrap .section.contact form .grecaptcha-badge:hover {
   right: -60px !important;
+  opacity: 0.8 !important;
 }
 html body.app .wrap #threeDom {
   width: 100% !important;
