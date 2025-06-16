@@ -185,6 +185,15 @@ html body.app .wrap .section.contact form label textarea {
   max-width: 450px;
   min-height: 112px;
 }
+html body.app .wrap .section.contact form .grecaptcha-badge {
+  right: -154px !important;
+  transform: scale(0.5) !important;
+  opacity: 0.4 !important;
+  z-index: 90;
+}
+html body.app .wrap .section.contact form .grecaptcha-badge:hover {
+  right: -60px !important;
+}
 html body.app .wrap #threeDom {
   width: 100% !important;
 }

@@ -189,6 +189,15 @@ html{
                                     min-height:112px;
                                 }
                             }
+                            .grecaptcha-badge{
+                                right:-154px !important;
+                                transform:scale(0.5) !important;
+                                opacity: 0.4 !important;
+                                z-index: 90;
+                                &:hover{
+                                    right:-60px !important;
+                                }
+                            }
                         }
                     }
                 }
