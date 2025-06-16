@@ -68,6 +68,7 @@ class ApiController extends Controller
 HTML;
 
         $mailData = [
+            'from'  => $email,
             'email' => $to,
           'content' => $content,
                'cc' => false
@@ -80,6 +81,7 @@ HTML;
                     /* @var $msg \Illuminate\Mail\Message */
                     if($mailData['cc']){
                         $msg->cc($mailData['cc']);
+                        $msg->replyTo($mailData['from'],'Contact');
                     }
                     $msg->to($mailData['email'])->subject('New yardifox.com Contact');
                     $msg->html($mailData['content']);
