@@ -452,7 +452,7 @@
                 const rotateY = extractRotateYFromMatrix3D(pTransform);
                 let pWidth = parseInt(paneStyle.width);
                 paneShadow.style.transform = rotateY ? `rotateX(${rotateY.toFixed(2)}deg`: '';
-                paneShadow.style.width = rotateY ? (pWidth / (rotateY * 0.03))+'px' : pWidth+'px';
+                paneShadow.style.width = rotateY ? (pWidth * (rotateY * 0.9))+'px' : pWidth+'px';
 
                 requestAnimationFrame(update);
 
