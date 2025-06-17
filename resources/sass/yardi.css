@@ -79,6 +79,7 @@ html body.app .wrap .section.attract .panel {
   background-color: gray;
   position: relative;
   overflow: hidden;
+  transition: opacity 0.4s ease-in-out;
   opacity: 0;
   /*
   max-width: 100%;
