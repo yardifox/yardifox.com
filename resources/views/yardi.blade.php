@@ -416,7 +416,7 @@
         (function(){
             setTimeout((e)=>{
                 infoPane.classList.add('loaded');
-            },80000);
+            },2000);
             console.log('ninja.js loaded');
             let ninja = document.querySelector('#ninjaSprite');
             ninja.style.position = "absolute";
