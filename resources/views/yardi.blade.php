@@ -447,8 +447,8 @@
 
                 // update shadow width:
                 paneShadow.style.width = infoPane.style.width
-                console.log(paneShadow.style.width);
-                console.log(infoPane.style.width);
+                console.log(paneShadow.style);
+                console.log(infoPane.style);
 
                 requestAnimationFrame(update);
 
