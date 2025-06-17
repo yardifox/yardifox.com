@@ -205,7 +205,7 @@ html body.app .wrap #threeDom {
 html body.app .header {
   left: 0;
   right: 0;
-  z-index: 5;
+  z-index: 6;
   /*
   background: rgb(4,69,7);
   background: linear-gradient(180deg, rgba(4,69,7,1) 0%, rgba(51,134,45,1) 100%);
