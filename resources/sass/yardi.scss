@@ -69,7 +69,8 @@ html{
 
                                 text-align: left;
                                 flex: 1 100%;
-                                font-size: 6em;
+                                padding-top:20px;
+                                ont-size: clamp(20px, 15vw, 75px);
                                 font-weight: bold;
                                 font-style: italic;
                                 color: #c10000;
