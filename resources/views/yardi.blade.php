@@ -450,10 +450,8 @@
                 paneShadow.style.width = paneStyle.width;
                 paneShadow.style.opacity = paneStyle.opacity;
                 const pTransform = paneStyle.transform;
-                const rotateXM = pTransform.match(/rotateX\([^)]*\)/);
-                paneShadow.style.transform = rotateXM ? rotateXM[0] : 'none';
-                console.log(pTransform);
-                console.log(rotateXM);
+                const rotateX = extractRotateXFromMatrix3D(pTransform);
+                paneShadow.style.transform = rotateX ? `rotateX(${rotateX.toFixed(2)}deg`: '';
 
                 requestAnimationFrame(update);
 
@@ -482,5 +480,23 @@
                 grecaptcha.execute();
             });
         })();
+        function extractRotateXFromMatrix3D(matrix3dString) {
+            const values = matrix3dString
+                .match(/matrix3d\(([^)]+)\)/)?.[1]
+                .split(',')
+                .map(parseFloat);
+
+            if (!values || values.length !== 16) {
+                throw new Error("Invalid matrix3d string");
+            }
+
+            const m22 = values[5]; // a6
+            const m23 = values[6]; // a7
+
+            const radians = Math.atan2(m23, m22);
+            const degrees = radians * (180 / Math.PI);
+
+            return degrees;
+        }
     </script>
 @endsection
