@@ -423,6 +423,9 @@
             setTimeout((e)=>{
                 infoPane.classList.add('loaded');
             },1200);
+            setTimeout((e)=>{
+                infoPane.style.minHeight = '300px';
+            },2000);
             console.log('ninja.js loaded');
             let ninja = document.querySelector('#ninjaSprite');
             ninja.style.position = "absolute";
