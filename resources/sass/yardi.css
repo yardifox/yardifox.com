@@ -125,7 +125,8 @@ html body.app .wrap .section.attract #paneShadow {
   top: 644px;
   z-index: -1;
   border-radius: 20px;
-  box-shadow: -12px 88px 34px #000000;
+  /* box-shadow: -12px 88px 34px #000000; */
+  box-shadow: 0 88px 34px #000000;
   transition: 0.03s ease-out;
 }
 html body.app .wrap .section.attract {
