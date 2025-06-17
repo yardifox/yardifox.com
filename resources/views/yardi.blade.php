@@ -414,7 +414,9 @@
          * Ninja Character code
          */
         (function(){
-            infoPane.classList.add('loaded');
+            setTimeout((e)=>{
+                infoPane.classList.add('loaded');
+            },1200);
             console.log('ninja.js loaded');
             let ninja = document.querySelector('#ninjaSprite');
             ninja.style.position = "absolute";
