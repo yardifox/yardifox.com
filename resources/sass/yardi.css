@@ -86,7 +86,9 @@ html body.app .wrap .section.attract .panel {
   height: auto;
   box-sizing: border-box;
   padding: 40px;
-  width: 600px;
+  /* width: 600px; */
+  width: 60%;
+  min-height: 300px;
   border-radius: 12px;
   background-color: gray;
   position: relative;
@@ -134,7 +136,7 @@ html body.app .wrap .section.attract #paneShadow {
   background-color: rgba(0, 0, 0, 0);
   height: 12px;
   position: absolute;
-  top: 644px;
+  bottom: 20%;
   z-index: -1;
   border-radius: 20px;
   /* box-shadow: -12px 88px 34px #000000; */
@@ -314,6 +316,12 @@ html body.app .threeDTitle {
   -moz-transition: 0.4s;
   -o-transition: 0.4s;
   transition: 0.4s;
+}
+
+@media all and (max-width: 550px) {
+  html body.app .wrap .section.attract .panel {
+    width: 95%;
+  }
 }
 
 /*# sourceMappingURL=yardi.css.map */

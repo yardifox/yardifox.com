@@ -98,7 +98,9 @@ html{
                             height: auto;
                             box-sizing: border-box;
                             padding: 40px;
-                            width: 600px;
+                            /* width: 600px; */
+                            width: 60%;
+                            min-height: 300px;
                             border-radius: 12px;
                             background-color: gray;
                             position: relative;
@@ -146,7 +148,7 @@ html{
                             background-color: #0000;
                             height: 12px;
                             position: absolute;
-                            top: 644px;
+                            bottom:20%;
                             z-index: -1;
                             border-radius: 20px;
                             /* box-shadow: -12px 88px 34px #000000; */
@@ -341,6 +343,23 @@ html{
                 transition: 0.4s;
             }
 
+        }
+    }
+}
+@media all and (max-width:550px){
+    html {
+        body {
+            &.app {
+                .wrap {
+                    .section {
+                        &.attract {
+                            .panel {
+                                width:95%;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
