@@ -474,7 +474,7 @@
                     lastScroll = currentScroll;
                     scrollPosY = (window.scrollY / document.body.clientHeight);
                     let nameH1 = document.getElementById('name');
-                    nameH1.style.paddingTop = scrollPosY +'px';
+                    nameH1.style.paddingTop = scrollPosY +'em';
                     sy -= scrollPosY*9;
                 }else{
                     lastScroll = currentScroll;
