@@ -124,9 +124,10 @@ html body.app .wrap .section.attract .panel {
    */
 }
 html body.app .wrap .section.attract .panel.loaded {
-  max-height: 900px !important;
+  max-height: 1900px !important;
   transition: max-height 0.75s ease-in, max-width 0.25s ease-in !important;
   max-width: 60% !important;
+  min-height: 300px;
 }
 html body.app .wrap .section.attract #paneShadow {
   width: 536px;
@@ -320,6 +321,9 @@ html body.app .threeDTitle {
   html body.app .wrap .section.attract .panel.loaded {
     width: 95%;
     max-width: 95% !important;
+  }
+  html body.app .wrap .section.attract #paneShadow {
+    bottom: 8% !important;
   }
 }
 
