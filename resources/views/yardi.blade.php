@@ -178,7 +178,10 @@
         let navBtnArray = [];
         (function(){
             // show the main pane
-            infoPane.style.opacity = 1;
+
+            setTimeout((e)=>{
+                infoPane.style.opacity = 1;
+            },800);
             const el = (sel, par) => (par || document).querySelector(sel);
             const elWrap = el("#attractWrap");
             const elTilt = el("#infoPane");
