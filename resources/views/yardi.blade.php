@@ -452,6 +452,8 @@
                 const pTransform = paneStyle.transform;
                 const rotateXM = pTransform.match(/rotateX\([^)]*\)/);
                 paneShadow.style.transform = rotateXM ? rotateXM[0] : 'none';
+                console.log(pTransform);
+                console.log(rotateXM);
 
                 requestAnimationFrame(update);
 
