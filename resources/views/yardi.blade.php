@@ -458,7 +458,7 @@
                 const rotateY = extractRotateYFromMatrix3D(pTransform);
                 let pWidth = parseInt(paneStyle.width);
                 //paneShadow.style.transform = rotateY ? `rotateX(${rotateY.toFixed(2)}deg`: '';
-                paneShadow.style.transform = pTransform;
+                paneShadow.style.transform = dampenMatrix3D(pTransform,0.4);
                 paneShadow.style.width = rotateY ? (pWidth  -(Math.abs(rotateY) * 6.23))+'px' : pWidth+'px';
 
                 requestAnimationFrame(update);
@@ -525,6 +525,32 @@
             const degrees = radians * (180 / Math.PI);
 
             return degrees;
+        }
+        function dampenMatrix3D(matrix3dString, dampingAmount) {
+            const values = matrix3dString
+                .match(/matrix3d\(([^)]+)\)/)?.[1]
+                .split(',')
+                .map(parseFloat);
+
+            if (!values || values.length !== 16) {
+                return false;
+            }
+
+            // Identity matrix3d
+            const identity = [
+                1, 0, 0, 0,  // row 1
+                0, 1, 0, 0,  // row 2
+                0, 0, 1, 0,  // row 3
+                0, 0, 0, 1   // row 4
+            ];
+
+            const dampened = values.map((val, index) => {
+                const idVal = identity[index];
+                return idVal + (val - idVal) * dampingAmount;
+            });
+
+            const result = `matrix3d(${dampened.map(n => n.toFixed(10)).join(',')})`;
+            return result;
         }
     </script>
 @endsection
