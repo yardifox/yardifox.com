@@ -70,7 +70,7 @@
                <div id="ninjaSprite" class="sprite phx">(0.0)</div>
         </div>
         <div class="section attract" id="attractWrap">
-            <h1>Test</h1>
+            <h1></h1>
             <div class="panel" id="infoPane">
                 <div class="">
 
