@@ -138,7 +138,8 @@ html body.app .wrap .section.attract #paneShadow {
   z-index: -1;
   border-radius: 20px;
   /* box-shadow: -12px 88px 34px #000000; */
-  box-shadow: 0 88px 34px #000000;
+  /* box-shadow: 0 88px 34px #000000; */
+  box-shadow: 0 88px 21px #000, 0 95px 40px #000, 0 98px 80px #000;
   transition: 0.03s ease-out;
 }
 html body.app .wrap .section.attract {
