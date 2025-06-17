@@ -449,7 +449,8 @@
                 const paneStyle = window.getComputedStyle(infoPane);
                 paneShadow.style.width = paneStyle.width;
                 paneShadow.style.opacity = paneStyle.opacity;
-                const rotateXM = paneStyle.transform.match(/rotateX\([^)]*\)/);
+                const pTransform = paneStyle.transform;
+                const rotateXM = pTransform.match(/rotateX\([^)]*\)/);
                 paneShadow.style.transform = rotateXM ? rotateXM[0] : 'none';
 
                 requestAnimationFrame(update);
