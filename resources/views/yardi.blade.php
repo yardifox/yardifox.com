@@ -470,11 +470,12 @@
             window.addEventListener("scroll", () =>{
                 let currentScroll = document.documentElement.scrollTop || document.body.scrollTop; // Get Current Scroll Value
 
+                let nameH1 = document.getElementById('name');
+                scrollPosY = (window.scrollY / document.body.clientHeight);
+                nameH1.style.paddingTop = scrollPosY *2.23+'em';
                 if (currentScroll > 0 && lastScroll <= currentScroll){
                     lastScroll = currentScroll;
                     scrollPosY = (window.scrollY / document.body.clientHeight);
-                    let nameH1 = document.getElementById('name');
-                    nameH1.style.paddingTop = scrollPosY *2.23+'em';
                     sy -= scrollPosY*9;
                 }else{
                     lastScroll = currentScroll;
