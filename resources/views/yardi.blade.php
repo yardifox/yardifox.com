@@ -450,8 +450,8 @@
                 paneShadow.style.width = paneStyle.width;
                 paneShadow.style.opacity = paneStyle.opacity;
                 const pTransform = paneStyle.transform;
-                const rotateX = extractRotateXFromMatrix3D(pTransform);
-                paneShadow.style.transform = rotateX ? `rotateX(${rotateX.toFixed(2)}deg`: '';
+                const rotateY = extractRotateYFromMatrix3D(pTransform);
+                paneShadow.style.transform = rotateY ? `rotateX(${rotateY.toFixed(2)}deg`: '';
 
                 requestAnimationFrame(update);
 
@@ -480,6 +480,25 @@
                 grecaptcha.execute();
             });
         })();
+        function extractRotateYFromMatrix3D(matrix3dString) {
+            const values = matrix3dString
+                .match(/matrix3d\(([^)]+)\)/)?.[1]
+                .split(',')
+                .map(parseFloat);
+
+            if (!values || values.length !== 16) {
+                //throw new Error("Invalid matrix3d string");
+                return false;
+            }
+
+            const m11 = values[0]; // a1
+            const m13 = values[2]; // a3
+
+            const radians = Math.atan2(m13, m11);
+            const degrees = radians * (180 / Math.PI);
+
+            return degrees;
+        }
         function extractRotateXFromMatrix3D(matrix3dString) {
             const values = matrix3dString
                 .match(/matrix3d\(([^)]+)\)/)?.[1]
