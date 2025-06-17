@@ -73,7 +73,7 @@
                <div id="ninjaSprite" class="sprite phx">(0.0)</div>
         </div>
         <div class="section attract" id="attractWrap">
-            <h1 class="name">Yardi Fox</h1>
+            <h1 class="name" id="name">Yardi Fox</h1>
             <div class="panel" id="infoPane">
                 <div class="">
 
@@ -473,6 +473,8 @@
                 if (currentScroll > 0 && lastScroll <= currentScroll){
                     lastScroll = currentScroll;
                     scrollPosY = (window.scrollY / document.body.clientHeight);
+                    let nameH1 = document.getElementById('name');
+                    nameH1.style.paddingTop = scrollPosY +'px';
                     sy -= scrollPosY*9;
                 }else{
                     lastScroll = currentScroll;
