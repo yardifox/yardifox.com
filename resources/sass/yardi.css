@@ -86,9 +86,8 @@ html body.app .wrap .section.attract .panel {
   height: auto;
   box-sizing: border-box;
   padding: 40px;
-  /* width: 600px; */
+  /* width: 1600px; */
   width: 60%;
-  min-height: 300px;
   border-radius: 12px;
   background-color: gray;
   position: relative;
@@ -318,7 +317,7 @@ html body.app .threeDTitle {
   transition: 0.4s;
 }
 
-@media all and (max-width: 550px) {
+@media all and (max-width: 750px) {
   html body.app .wrap .section.attract .panel {
     width: 95%;
   }

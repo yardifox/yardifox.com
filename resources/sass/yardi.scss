@@ -98,9 +98,8 @@ html{
                             height: auto;
                             box-sizing: border-box;
                             padding: 40px;
-                            /* width: 600px; */
+                            /* width: 1600px; */
                             width: 60%;
-                            min-height: 300px;
                             border-radius: 12px;
                             background-color: gray;
                             position: relative;
@@ -346,7 +345,7 @@ html{
         }
     }
 }
-@media all and (max-width:550px){
+@media all and (max-width:750px){
     html {
         body {
             &.app {
