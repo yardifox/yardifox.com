@@ -461,7 +461,7 @@
                 paneShadow.style.transform = dampenMatrix3D(pTransform,0.19);
                 paneShadow.style.width = rotateY ? (pWidth  -(Math.abs(rotateY) * 3.23))+'px' : pWidth+'px';
 
-                paneShadow.style.opacity = parseInt(paneStyle.height) * 0.45;
+                paneShadow.style.opacity = parseInt(paneStyle.height) * 0.05;
                 requestAnimationFrame(update);
 
             }
