@@ -449,7 +449,7 @@
                 const paneStyle = window.getComputedStyle(infoPane);
                 paneShadow.style.width = paneStyle.width;
                 paneShadow.style.opacity = paneStyle.opacity;
-
+                paneShadow.style.transform = paneStyle.transform;
 
                 requestAnimationFrame(update);
 

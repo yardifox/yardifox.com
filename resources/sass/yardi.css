@@ -126,6 +126,7 @@ html body.app .wrap .section.attract #paneShadow {
   z-index: -1;
   border-radius: 20px;
   box-shadow: -12px 88px 34px #000000;
+  transition: 0.3s ease;
 }
 html body.app .wrap .section.attract {
   min-height: 300px;
