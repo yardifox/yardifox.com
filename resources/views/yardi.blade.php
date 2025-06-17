@@ -447,11 +447,12 @@
 
                 // update shadow width:
                 const paneStyle = window.getComputedStyle(infoPane);
-                paneShadow.style.width = paneStyle.width;
                 paneShadow.style.opacity = paneStyle.opacity;
                 const pTransform = paneStyle.transform;
                 const rotateY = extractRotateYFromMatrix3D(pTransform);
+                let pWidth = parseInt(paneStyle.width);
                 paneShadow.style.transform = rotateY ? `rotateX(${rotateY.toFixed(2)}deg`: '';
+                paneShadow.style.width = rotateY ? (pWidth * rotateY)+'px' : pWidth+'px';
 
                 requestAnimationFrame(update);
 
