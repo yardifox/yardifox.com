@@ -70,6 +70,11 @@ html body.app .wrap .section.attract h1 {
   text-align: center;
 }
 html body.app .wrap .section.attract h1.name {
+  -webkit-transition: padding 0.1s linear;
+  -moz-transition: padding 0.1s linear;
+  -ms-transition: padding 0.1s linear;
+  -o-transition: padding 0.1s linear;
+  transition: padding 0.1s linear;
   font-family: "Russo One", sans-serif;
   text-align: left;
   flex: 1 100%;

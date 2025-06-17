@@ -65,6 +65,13 @@ html{
                             flex: 1 100%;
                             text-align: center;
                             &.name{
+
+                                -webkit-transition: padding .1s linear;
+                                -moz-transition: padding .1s linear;
+                                -ms-transition: padding .1s linear;
+                                -o-transition: padding .1s linear;
+                                transition: padding .1s linear;
+
                                 font-family: "Russo One", sans-serif;
 
                                 text-align: left;
