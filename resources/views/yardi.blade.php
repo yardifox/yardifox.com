@@ -487,7 +487,8 @@
                 .map(parseFloat);
 
             if (!values || values.length !== 16) {
-                throw new Error("Invalid matrix3d string");
+                //throw new Error("Invalid matrix3d string");
+                return false;
             }
 
             const m22 = values[5]; // a6
