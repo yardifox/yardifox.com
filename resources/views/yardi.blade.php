@@ -446,9 +446,8 @@
                 ninja.style.top = sy+ 'px';
 
                 // update shadow width:
-                paneShadow.width = infoPane.width
-                console.log(paneShadow.width);
-                console.log(infoPane.width);
+                paneShadow.style.width = window.getComputedStyle(infoPane).width;
+                
 
                 requestAnimationFrame(update);
 
