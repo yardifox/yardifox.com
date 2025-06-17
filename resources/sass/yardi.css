@@ -86,8 +86,7 @@ html body.app .wrap .section.attract .panel {
   height: auto;
   box-sizing: border-box;
   padding: 40px;
-  /* width: 1600px; */
-  width: 60%;
+  width: 1600px;
   border-radius: 12px;
   background-color: gray;
   position: relative;
@@ -125,9 +124,9 @@ html body.app .wrap .section.attract .panel {
    */
 }
 html body.app .wrap .section.attract .panel.loaded {
-  max-height: 500px !important;
+  max-height: 900px !important;
   transition: max-height 0.55s ease-in, max-width 0.25s ease-in !important;
-  max-width: 600px !important;
+  max-width: 60% !important;
 }
 html body.app .wrap .section.attract #paneShadow {
   width: 536px;
