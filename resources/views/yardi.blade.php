@@ -122,7 +122,9 @@
     <script type="text/javascript" src="{{ asset("/js/ninja.js")}}"/>-->
     <script type="text/javascript">
         // Contact Form submission handling
+        const infoPane = document.getElementById('infoPane');
         const cForm = document.getElementById('ypContactForm');
+        const paneShadow = document.getElementById('paneShadow');
         function onLoadCallback() {
             grecaptcha.render(document.querySelector('.g-recaptcha'), {
                 sitekey: '6Lc-S2ErAAAAADZNX3frKgGJ95Ns-VKUEhwrKjLN',
@@ -175,6 +177,8 @@
         }
         let navBtnArray = [];
         (function(){
+            // show the main pane
+            infoPane.style.opacity = 1;
             const el = (sel, par) => (par || document).querySelector(sel);
             const elWrap = el("#attractWrap");
             const elTilt = el("#infoPane");
@@ -410,7 +414,7 @@
          * Ninja Character code
          */
         (function(){
-
+            infoPane.classList.add('loaded');
             console.log('ninja.js loaded');
             let ninja = document.querySelector('#ninjaSprite');
             ninja.style.position = "absolute";
@@ -435,6 +439,9 @@
 
                 ninja.style.left = sx + 'px';
                 ninja.style.top = sy+ 'px';
+
+                // update shadow width:
+                paneShadow.style.width = infoPane.style.width;
 
                 requestAnimationFrame(update);
 

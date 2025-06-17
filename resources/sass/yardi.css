@@ -71,7 +71,8 @@ html body.app .wrap .section.attract h1 {
 }
 html body.app .wrap .section.attract .panel {
   /* width: 60vw; */
-  min-height: 450px;
+  min-height: 0;
+  max-width: 0;
   height: auto;
   box-sizing: border-box;
   padding: 40px;
@@ -104,6 +105,11 @@ html body.app .wrap .section.attract .panel {
       transform: skewX(73deg);
   }
    */
+}
+html body.app .wrap .section.attract .panel.loaded {
+  max-height: 500px !important;
+  transition: max-height 0.55s ease-in, max-width 0.25s ease-in !important;
+  max-width: 600px !important;
 }
 html body.app .wrap .section.attract #paneShadow {
   width: 536px;
