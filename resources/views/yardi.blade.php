@@ -463,7 +463,9 @@
                 //paneShadow.style.transform = rotateY ? `rotateX(${rotateY.toFixed(2)}deg`: '';
                 paneShadow.style.transform = dampenMatrix3D(pTransform,0.19);
                 paneShadow.style.width = rotateY ? (pWidth  -(Math.abs(rotateY) * 3.23))+'px' : pWidth+'px';
-
+                console.log('rotateY');
+                console.log(rotateY);
+                paneShadow.style.marginLeft = (rotateY * 8.5)+'px';
                 paneShadow.style.opacity = (parseInt(paneStyle.height) * 0.0012) * shadowScrollMultipliyer;
                 requestAnimationFrame(update);
 
