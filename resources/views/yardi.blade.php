@@ -128,6 +128,8 @@
         const infoPane = document.getElementById('infoPane');
         const cForm = document.getElementById('ypContactForm');
         const paneShadow = document.getElementById('paneShadow');
+        const ypName = document.getElementById('name');
+        let shadowScrollMultipliyer = 1;
         function onLoadCallback() {
             grecaptcha.render(document.querySelector('.g-recaptcha'), {
                 sitekey: '6Lc-S2ErAAAAADZNX3frKgGJ95Ns-VKUEhwrKjLN',
@@ -455,13 +457,14 @@
                 const paneStyle = window.getComputedStyle(infoPane);
                 // paneShadow.style.opacity = paneStyle.opacity;
                 const pTransform = paneStyle.transform;
+                ypName.style.transform = dampenMatrix3D(pTransform,0.12);
                 const rotateY = extractRotateYFromMatrix3D(pTransform);
                 let pWidth = parseInt(paneStyle.width);
                 //paneShadow.style.transform = rotateY ? `rotateX(${rotateY.toFixed(2)}deg`: '';
                 paneShadow.style.transform = dampenMatrix3D(pTransform,0.19);
                 paneShadow.style.width = rotateY ? (pWidth  -(Math.abs(rotateY) * 3.23))+'px' : pWidth+'px';
 
-                paneShadow.style.opacity = parseInt(paneStyle.height) * 0.0012;
+                paneShadow.style.opacity = (parseInt(paneStyle.height) * 0.0012) * shadowScrollMultipliyer;
                 requestAnimationFrame(update);
 
             }
@@ -472,6 +475,7 @@
 
                 let nameH1 = document.getElementById('name');
                 scrollPosY = (window.scrollY / document.body.clientHeight);
+                shadowScrollMultipliyer =  (scrollPosY * 0.40) * 9.95 + 1;
                 if(document.body.clientWidth > 550){
                     nameH1.style.paddingTop = scrollPosY *8.23 < 4 ? scrollPosY *8.23 +'em' : '4em';
                 }
