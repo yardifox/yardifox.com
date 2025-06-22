@@ -107,7 +107,7 @@
                 <div class="">
 
                 </div>
-                <div class="">
+                <div class="infoCont" id="aboutContent">
                     What the hell
                     <p>
                         <em>Lorem Ipsum</em> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
@@ -248,6 +248,7 @@
             const el = (sel, par) => (par || document).querySelector(sel);
             const elWrap = el("#attractWrap");
             const elTilt = el("#infoPane");
+            const elTextTilt = el('#aboutContent');
             const navWork = el("#navBtnWork");
             const navAbout = el("#navBtnAbout");
             const navContact = el("#navBtnContact");
@@ -281,6 +282,8 @@
                 const reverse = settings.reverse ? -1 : 1;
                 const tiltX = reverse * (settings.max / 2 - x * settings.max);
                 const tiltY = reverse * (y * settings.max - settings.max / 2);
+                const textTiltX = tiltX * 1.15;
+                const textTiltY = tiltY * 1.15;
                 elTilt.style.transition = `0s ease`;
                 elTilt.style.transform = `
                 ${tiltTranslateY}
@@ -288,6 +291,11 @@
                 rotateY(${settings.axis === "y" ? 0 : tiltX}deg)
                 scale(${settings.scale})
               `;
+                elTextTilt.style.transform = `
+                rotateX(${settings.axis === "x" ? 0 : tiltY}deg)
+                rotateY(${settings.axis === "y" ? 0 : tiltX}deg)
+                scale(${settings.scale})
+                `;
             }
             const touchTilt = (evt) => {
                 console.log('touchTilt')
