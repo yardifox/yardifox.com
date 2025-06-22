@@ -296,6 +296,9 @@
                 translateY(${settings.axis === "y" ? 0 : textTiltY}px)
                 scale(${settings.scale})
                 `;
+                elTextTilt.style.textShadow = `
+                    ${tiltX}px ${tiltY}px 1px rgba(0,0,0,0.8)
+                `
             }
             const touchTilt = (evt) => {
                 console.log('touchTilt')
