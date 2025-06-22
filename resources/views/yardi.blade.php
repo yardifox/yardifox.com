@@ -2,7 +2,9 @@
 @section('head')
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap"></noscript>
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -38,8 +40,6 @@
             }
         }
     </script>
-    <!-- Google Invisible reCAPTCHA v2 -->
-    <script src="https://www.google.com/recaptcha/api.js?onload=onLoadCallback&render=explicit" async defer></script>
 @endsection
 @section('content')
     <div class="header">
@@ -124,6 +124,32 @@
     <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script type="text/javascript" src="{{ asset("/js/ninja.js")}}"/>-->
     <script type="text/javascript">
+        // Lazy Load Recaptcha
+        let recaptchaLoaded = false;
+
+        function loadRecaptcha(){
+            if(recaptchaLoaded) return;
+
+            const script = document.createElement('script');
+            script.src = "https://www.google.com/recaptcha/api.js?onload=onLoadCallback&render=explicit";
+            script.async = true;
+            script.defer = true;
+            document.body.appendChild(script);
+            recaptchaLoaded = true;
+        }
+
+        // Load reCAPTCHA when contact section comes into view
+        const contactCont = document.getElementById('contactcont');
+        const observer = new IntersectionObserver(entries => {
+            if(entries[0].isIntersecting){
+                loadRecaptcha();
+                observer.disconnect();
+            }
+        },{ threshold: 0.1 });
+
+        observer.observe(contactCont);
+
+
         // Contact Form submission handling
         const infoPane = document.getElementById('infoPane');
         const cForm = document.getElementById('ypContactForm');
