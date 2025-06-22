@@ -340,7 +340,7 @@
                 elTextTilt.style.textShadow = `
                     ${settings.axis === "x" ? 0 :-tiltX*1.9}px ${settings.axis === "y" ? 0 :tiltY*1.9}px 1px rgba(0,0,0,0.5)
                 `;
-                const h2ShadowValue = `drop-shadow(${settings.axis === "x" ? 0 : -tiltX * 1.9}px ${settings.axis === "y" ? 0 : tiltY * 1.9}px 2px #000000)`;
+                const h2ShadowValue = `drop-shadow(${settings.axis === "x" ? 0 : -tiltX * 1.9}px ${settings.axis === "y" ? 0 : tiltY * 1.9}px 1px rgba(0,0,0,0.5))`;
                 h2TextTilt.style.webkitFilter  = h2ShadowValue;
                 h2TextTilt.style.filter  = h2ShadowValue;
             }
@@ -363,6 +363,9 @@
                 elTextTilt.style.textShadow = `
                     1px 1px 1px rgba(0,0,0,0.8)
                 `;
+                const h2ShadowValue = `drop-shadow(1px 1px 1px rgba(0,0,0,0.5))`;
+                h2TextTilt.style.webkitFilter  = h2ShadowValue;
+                h2TextTilt.style.filter  = h2ShadowValue;
             }
 
             const scrollToWork = (evt) =>{
