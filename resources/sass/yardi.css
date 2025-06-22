@@ -132,7 +132,7 @@ html body.app .wrap .section.attract .panel {
 }
 html body.app .wrap .section.attract .panel.loaded {
   max-height: 1900px !important;
-  transition: max-height 0.75s ease-in, max-width 0.25s ease-in, 0.02s ease !important;
+  transition: max-height 0.75s ease-in, max-width 0.25s ease-in, 0.3s ease !important;
   max-width: 60% !important;
 }
 html body.app .wrap .section.attract #paneShadow {
@@ -150,7 +150,7 @@ html body.app .wrap .section.attract #paneShadow {
   transition: 0.03s ease-out;
 }
 html body.app .wrap .section.attract:hover .panel.loaded {
-  transition: 0.45s ease-in !important;
+  transition: max-height 0.75s ease-in, max-width 0.25s ease-in, 0.02s ease !important;
 }
 html body.app .wrap .section.attract {
   min-height: 300px;
