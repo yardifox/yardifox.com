@@ -282,8 +282,8 @@
                 const reverse = settings.reverse ? -1 : 1;
                 const tiltX = reverse * (settings.max / 2 - x * settings.max);
                 const tiltY = reverse * (y * settings.max - settings.max / 2);
-                const textTiltX = tiltX * 1.95;
-                const textTiltY = -tiltY * 1.95;
+                const textTiltX = tiltX * 2.95;
+                const textTiltY = -tiltY * 2.95;
                 elTilt.style.transition = `0s ease`;
                 elTilt.style.transform = `
                 ${tiltTranslateY}
