@@ -108,7 +108,7 @@
 
                 </div>
                 <div class="infoCont" id="aboutContent">
-                    <h2 style='font-size: 1.9em;font-family: "Russo One", sans-serif;'>Creative Technologist & Game Dev Explorer</h2>
+                    <h2 id="infoContH2" style='font-size: 1.9em;font-family: "Russo One", sans-serif;'>Creative Technologist & Game Dev Explorer</h2>
                     <p style="font-size:1.4em;">
                         I'm Yardi Fox — a creative technologist and coder who approaches development as both a craft and a puzzle. I specialize in designing elegant, often unconventional solutions to complex problems, whether in game mechanics, interactive design, or visual programming.
                     </p>
@@ -246,12 +246,13 @@
                 infoPane.style.opacity = 1;
             },800);
             const el = (sel, par) => (par || document).querySelector(sel);
-            const elWrap = el("#attractWrap");
-            const elTilt = el("#infoPane");
-            const elTextTilt = el('#aboutContent');
-            const navWork = el("#navBtnWork");
-            const navAbout = el("#navBtnAbout");
-            const navContact = el("#navBtnContact");
+            const elWrap        = el("#attractWrap");
+            const elTilt        = el("#infoPane");
+            const elTextTilt    = el('#aboutContent');
+            const h2TextTilt    = el('#infoContH2');
+            const navWork       = el("#navBtnWork");
+            const navAbout      = el("#navBtnAbout");
+            const navContact    = el("#navBtnContact");
 
 
             const settings = {
@@ -279,9 +280,11 @@
                 const bcr = elWrap.getBoundingClientRect();
                 const x = Math.min(1, Math.max(0, (evt.clientX - bcr.left) / bcr.width));
                 const y = Math.min(1, Math.max(0, (evt.clientY - bcr.top) / bcr.height));
+
                 const reverse = settings.reverse ? -1 : 1;
                 const tiltX = reverse * (settings.max / 2 - x * settings.max);
                 const tiltY = reverse * (y * settings.max - settings.max / 2);
+
                 const textTiltX = tiltX * 2.95;
                 const textTiltY = -tiltY * 2.95;
                 elTilt.style.transition = `0s ease`;
@@ -299,6 +302,9 @@
                 `;
                 elTextTilt.style.textShadow = `
                     ${settings.axis === "x" ? 0 :-tiltX*1.9}px ${settings.axis === "y" ? 0 :tiltY*1.9}px 1px rgba(0,0,0,0.5)
+                `;
+                h2TextTilt.style.filter = `
+                    drop-shadow(${settings.axis === "x" ? 0 :-tiltX*1.9}x ${settings.axis === "y" ? 0 :tiltY*1.9}px 2px #000000);
                 `;
             }
             const touchTilt = (evt) => {
@@ -331,6 +337,9 @@
                 `;
                 elTextTilt.style.textShadow = `
                     ${settings.axis === "x" ? 0 :-tiltX*1.9}px ${settings.axis === "y" ? 0 :tiltY*1.9}px 1px rgba(0,0,0,0.5)
+                `;
+                h2TextTilt.style.filter = `
+                    drop-shadow(${settings.axis === "x" ? 0 :-tiltX*1.9}x ${settings.axis === "y" ? 0 :tiltY*1.9}px 2px #000000);
                 `;
             }
             const recenter = (evt) => {

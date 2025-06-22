@@ -136,6 +136,14 @@ html{
                                 max-width: 60% !important;
                                 .infoCont{
                                     text-shadow: rgba(0, 0, 0, 0.8) 2px 2px 1px;
+                                    h2{
+                                        background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2) 58%), linear-gradient(143deg, rgb(255, 255, 255), rgb(124, 101, 161));
+                                        background-clip: text;
+                                        letter-spacing: -0.02em;
+                                        padding-right: 0.04em;
+                                        -webkit-text-fill-color: transparent;
+                                        filter: drop-shadow(1px 1px 2px #000000);
+                                    }
                                 }
                             }
                             /*
