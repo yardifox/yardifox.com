@@ -117,6 +117,7 @@ html{
                             max-width: 100%;
                             max-height: 90% ;
                              */
+                            transform:translateY(-200px);
                             max-height: 0;
                             max-width: 0;
                             background-image: linear-gradient(111.15deg, #0060f07c, #00040a99 92.78%), linear-gradient(112.99deg, #76afbbf2 -19.03%, #082162f2 102.17%);
@@ -137,6 +138,7 @@ html{
                             &.loaded{
                                 max-height: 1900px !important;
                                 max-width: 60% !important;
+                                transform:translateY(0);
                                 opacity:1;
                                 .infoCont{
                                     opacity:1;
