@@ -73,7 +73,36 @@
                <div id="ninjaSprite" class="sprite phx">(0.0)</div>
         </div>
         <div class="section attract" id="attractWrap">
-            <h1 class="name" id="name">Yardi Fox</h1>
+            <h1 class="name" id="name"  style="
+    -webkit-transition: padding 0.1s linear;
+    -moz-transition: padding 0.1s linear;
+    -ms-transition: padding 0.1s linear;
+    -o-transition: padding 0.1s linear;
+    transition: padding 0.1s linear;
+    font-family: 'Russo One', sans-serif;
+    text-align: left;
+    flex: 1 100%;
+    padding-top: 20px;
+    font-size: clamp(20px, 15vw, 75px);
+    font-weight: 700;
+    font-style: italic;
+    color: #c10000;
+    text-shadow:
+      0 1px 0 #c7c7c7,
+      0 2px 0 #c7c7c7,
+      0 3px 0 #c7c7c7,
+      0 4px 0 #c7c7c7,
+      0 5px 0 #c7c7c7,
+      0 6px 0 #c7c7c7,
+      0 7px 0 #c7c7c7,
+      0 8px 0 #c7c7c7,
+      0 9px 0 #c7c7c7,
+      0 10px 0 #c7c7c7,
+      0 11px 0 #c7c7c7,
+      1px 15px 10px rgba(16, 16, 16, .3),
+      1px 20px 20px rgba(16, 16, 16, .2),
+      1px 25px 42px rgba(16, 16, 16, .2);
+">Yardi Fox</h1>
             <div class="panel" id="infoPane">
                 <div class="">
 

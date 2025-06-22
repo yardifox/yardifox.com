@@ -7,7 +7,8 @@
     <meta name="facebook-domain-verification" content="685dy4dttb7274uh0c1te479irp774" />
     <meta name="csrf-token" content="<?=csrf_token(); ?>" />
 
-    <title>Yardi Fox</title>
+    <title>Yardi Fox – FullStack Creative Developer</title>
+    <meta name="description" content="Portfolio and projects of Yardi Fox, a creative fullstack developer.">
     <link href="/img/apple-touch-icon.png" rel="apple-touch-icon">
     <link href="/img/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
     <link href="/img/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
