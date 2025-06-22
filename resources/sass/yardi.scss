@@ -133,7 +133,7 @@ html{
                             transition: max-height .75s ease-in, max-width .25s ease-in, translateY 0.4s  !important;
                             &.loaded{
                                 max-height: 1900px !important;
-                                transition: max-height .75s ease-in, max-width .25s ease-in , 0.3s ease !important;
+                                // transition: max-height .75s ease-in, max-width .25s ease-in , 0.3s ease !important;
                                 max-width: 60% !important;
                                 .infoCont{
                                     text-shadow: rgba(0, 0, 0, 0.8) 2px 2px 1px;
