@@ -187,10 +187,11 @@ html{
                             /* box-shadow: -12px 88px 34px #000000; */
                             /* box-shadow: 0 88px 34px #000000; */
                             box-shadow: 0 88px 21px #0000, 0 95px 40px #0000, 0 98px 80px #0000;
-                            transition: 0.03s ease-out;
+                            transition: 0.33s ease-out;
                             opacity:0;
                             &.show{
                                 box-shadow: 0 88px 21px #000, 0 95px 40px #000, 0 98px 80px #000;
+                                transition: 0.03s ease-out;
                             }
                         }
                         &:hover{
