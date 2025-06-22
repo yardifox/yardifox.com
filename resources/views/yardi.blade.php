@@ -298,7 +298,7 @@
                 scale(${settings.scale})
                 `;
                 elTextTilt.style.textShadow = `
-                    ${settings.axis === "x" ? 0 :-tiltX*0.9}px ${settings.axis === "y" ? 0 :tiltY*0.9}px 1px rgba(0,0,0,0.8)
+                    ${settings.axis === "x" ? 0 :-tiltX*0.9}px ${settings.axis === "y" ? 0 :tiltY*0.9}px 1px rgba(0,0,0,0.5)
                 `
             }
             const touchTilt = (evt) => {
