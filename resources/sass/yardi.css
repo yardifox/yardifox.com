@@ -178,6 +178,8 @@ html body.app .wrap .section.attract #paneShadow {
 }
 html body.app .wrap .section.attract #paneShadow.show {
   box-shadow: 0 88px 21px #000, 0 95px 40px #000, 0 98px 80px #000;
+}
+html body.app .wrap .section.attract #paneShadow.loaded {
   transition: 0.03s ease-out;
 }
 html body.app .wrap .section.attract:hover .panel.loaded {

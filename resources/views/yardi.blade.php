@@ -553,6 +553,7 @@
             },600);
             setTimeout((e)=>{
                 infoPane.classList.add('loaded');
+                paneShadow.classList.add('loaded');
             },1200);
             setTimeout((e)=>{
                 infoPane.classList.add('extended');

@@ -191,6 +191,8 @@ html{
                             opacity:0;
                             &.show{
                                 box-shadow: 0 88px 21px #000, 0 95px 40px #000, 0 98px 80px #000;
+                            }
+                            &.loaded{
                                 transition: 0.03s ease-out;
                             }
                         }
