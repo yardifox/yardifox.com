@@ -108,7 +108,7 @@
 
                 </div>
                 <div class="infoCont" id="aboutContent">
-                    <h2 style="font-size:2.9em;">Creative Technologist & Game Dev Explorer</h2>
+                    <h2 style='font-size: 1.9em;font-family: "Russo One", sans-serif;'>Creative Technologist & Game Dev Explorer</h2>
                     <p style="font-size:1.4em;">
                         I'm Yardi Fox — a creative technologist and coder who approaches development as both a craft and a puzzle. I specialize in designing elegant, often unconventional solutions to complex problems, whether in game mechanics, interactive design, or visual programming.
                     </p>
