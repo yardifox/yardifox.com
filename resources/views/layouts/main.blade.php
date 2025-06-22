@@ -62,7 +62,10 @@
            script.onload = () =>{
                console.log('Three.js loaded.');
            }
-           document.body.appendChild(script);
+           setTimeout(()=>{
+               document.body.appendChild(script);
+           },800);
+
         });
     })();
 </script>
