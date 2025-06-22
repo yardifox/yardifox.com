@@ -537,8 +537,8 @@
                 shadowScrollMultipliyer =  (scrollPosY * 0.40) * 9.95 + 1;
                 if(document.body.clientWidth > 550){
                     // nameH1.style.paddingTop = scrollPosY *8.23 < 4 ? scrollPosY *8.23 +'em' : '4em';
-                    nameH1.style.transform  = scrollPosY *8.23 < 4 ? `translateY(${scrollPosY * 8.23}em)` : '4em';
-                    infoPane.style.transform  = scrollPosY *8.23 < 4 ? `translateY(${scrollPosY * 8.23}em)` : '4em';
+                    nameH1.style.transform  = scrollPosY *8.23 < 6 ? `translateY(${scrollPosY * 8.23}em)` : '4em';
+                    infoPane.style.transform  = scrollPosY *8.23 < 7 ? `translateY(${scrollPosY * 8.23}em)` : '4em';
                 }
                 if (currentScroll > 0 && lastScroll <= currentScroll){
                     lastScroll = currentScroll;
