@@ -136,7 +136,7 @@ html body.app .wrap .section.attract .panel.loaded {
   max-width: 60% !important;
 }
 html body.app .wrap .section.attract .panel.loaded .infoCont {
-  text-shadow: rgba(0, 0, 0, 0.8) 2px 2px 1px !important;
+  text-shadow: rgba(0, 0, 0, 0.8) 2px 2px 1px;
 }
 html body.app .wrap .section.attract #paneShadow {
   width: 536px;
