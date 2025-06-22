@@ -299,9 +299,14 @@
                 `;
                 elTextTilt.style.textShadow = `
                     ${settings.axis === "x" ? 0 :-tiltX*1.9}px ${settings.axis === "y" ? 0 :tiltY*1.9}px 1px rgba(0,0,0,0.5)
-                `
+                `;
             }
             const touchTilt = (evt) => {
+                let scrollY = getScrollY();
+                let tiltTranslateY = `translateY(0)`;
+                if(document.body.clientWidth > 550){
+                    tiltTranslateY = scrollY *8.23 < 7 ? `translateY(${scrollPosY * 8.23}em)` : 'translateY(4em)';
+                }
                 console.log('touchTilt')
                 console.log(evt);
                 const bcr = elWrap.getBoundingClientRect();
@@ -310,12 +315,23 @@
                 const reverse = settings.reverse ? -1 : 1;
                 const tiltX = reverse * (settings.max / 2 - x * settings.max);
                 const tiltY = reverse * (y * settings.max - settings.max / 2);
+                const textTiltX = tiltX * 2.95;
+                const textTiltY = -tiltY * 2.95;
                 elTilt.style.transition = `.3s ease`;
                 elTilt.style.transform = `
                 rotateX(${settings.axis === "x" ? 0 : tiltY}deg)
                 rotateY(${settings.axis === "y" ? 0 : tiltX}deg)
                 scale(${settings.scale})
               `;
+                elTextTilt.style.transition = `0s ease`;
+                elTextTilt.style.transform = `
+                translateX(${settings.axis === "x" ? 0 : textTiltX}px)
+                translateY(${settings.axis === "y" ? 0 : textTiltY}px)
+                scale(${settings.scale})
+                `;
+                elTextTilt.style.textShadow = `
+                    ${settings.axis === "x" ? 0 :-tiltX*1.9}px ${settings.axis === "y" ? 0 :tiltY*1.9}px 1px rgba(0,0,0,0.5)
+                `;
             }
             const recenter = (evt) => {
 
