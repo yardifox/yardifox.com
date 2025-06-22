@@ -132,18 +132,18 @@ html body.app .wrap .section.attract .panel {
    */
 }
 html body.app .wrap .section.attract .panel .infoCont {
-  transition: opacity 0.89s ease-in-out;
+  transition: opacity 0.49s ease-out;
   opacity: 0;
 }
 html body.app .wrap .section.attract .panel.loaded {
   max-height: 1900px !important;
   max-width: 60% !important;
 }
+html body.app .wrap .section.attract .panel.loaded .infoCont {
+  opacity: 1;
+}
 html body.app .wrap .section.attract .panel.loaded.extended {
   transition: max-height 0.75s ease-in, max-width 0.25s ease-in, 0.3s ease !important;
-}
-html body.app .wrap .section.attract .panel.loaded.extended .infoCont {
-  opacity: 1;
 }
 html body.app .wrap .section.attract .panel.loaded .infoCont {
   text-shadow: rgba(0, 0, 0, 0.8) 2px 2px 1px;
