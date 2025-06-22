@@ -320,9 +320,20 @@
 
                 elTilt.style.transition = `.3s ease`;
                 elTilt.style.transform = `
-                rotateX(0deg)
-                rotateY(0deg)
-                scale(1)
+                    rotateX(0deg)
+                    rotateY(0deg)
+                    scale(1)
+                `;
+
+                elTextTilt.style.transition = `.3s ease`;
+
+                elTextTilt.style.transform = `
+                    rotateX(0deg)
+                    rotateY(0deg)
+                    scale(1)
+                `;
+                elTextTilt.style.textShadow = `
+                    1px 1px 1px rgba(0,0,0,0.8)
                 `;
             }
 
