@@ -108,9 +108,9 @@
 
                 </div>
                 <div class="infoCont" id="aboutContent">
-                    What the hell
+                    <em>Creative Technologist & Game Dev Explorer</em>
                     <p>
-                        <em>Lorem Ipsum</em> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        I'm Yardi Fox — a creative technologist and coder who approaches development as both a craft and a puzzle. I specialize in designing elegant, often unconventional solutions to complex problems, whether in game mechanics, interactive design, or visual programming.
                     </p>
                 </div>
             </div>
