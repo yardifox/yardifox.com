@@ -292,8 +292,8 @@
                 scale(${settings.scale})
               `;
                 elTextTilt.style.transform = `
-                rotateX(${settings.axis === "x" ? 0 : tiltY}deg)
-                rotateY(${settings.axis === "y" ? 0 : tiltX}deg)
+                rotateX(${settings.axis === "x" ? 0 : textTiltY}deg)
+                rotateY(${settings.axis === "y" ? 0 : textTiltX}deg)
                 scale(${settings.scale})
                 `;
             }
