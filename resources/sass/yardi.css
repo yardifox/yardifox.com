@@ -131,6 +131,10 @@ html body.app .wrap .section.attract .panel {
   }
    */
 }
+html body.app .wrap .section.attract .panel .infoCont {
+  transition: opacity 0.89s ease-in-out;
+  opacity: 0;
+}
 html body.app .wrap .section.attract .panel.loaded {
   max-height: 1900px !important;
   max-width: 60% !important;
@@ -143,8 +147,6 @@ html body.app .wrap .section.attract .panel.loaded.extended .infoCont {
 }
 html body.app .wrap .section.attract .panel.loaded .infoCont {
   text-shadow: rgba(0, 0, 0, 0.8) 2px 2px 1px;
-  transition: opacity 0.89s ease-in-out;
-  opacity: 0;
 }
 html body.app .wrap .section.attract .panel.loaded .infoCont h2 {
   background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2) 58%), linear-gradient(143deg, rgb(255, 255, 255), rgb(124, 101, 161));
