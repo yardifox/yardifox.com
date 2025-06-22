@@ -135,10 +135,12 @@ html{
                                 transition:opacity 0.49s ease-out;
                                 opacity:0;
                             }
+                            &.drop{
+                                transform:translateY(0);
+                            }
                             &.loaded{
                                 max-height: 1900px !important;
                                 max-width: 60% !important;
-                                transform:translateY(0);
                                 opacity:1;
                                 .infoCont{
                                     opacity:1;

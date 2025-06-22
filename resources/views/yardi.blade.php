@@ -548,6 +548,9 @@
          */
         (function(){
             setTimeout((e)=>{
+                infoPane.classList.add('drop');
+            },600);
+            setTimeout((e)=>{
                 infoPane.classList.add('loaded');
             },1200);
             setTimeout((e)=>{
