@@ -303,7 +303,7 @@
                 elTextTilt.style.textShadow = `
                     ${settings.axis === "x" ? 0 :-tiltX*1.9}px ${settings.axis === "y" ? 0 :tiltY*1.9}px 1px rgba(0,0,0,0.5)
                 `;
-                h2TextTilt.style.filter = `
+                h2TextTilt.style.webkitFilter  = `
                     drop-shadow(${settings.axis === "x" ? 0 :-tiltX*1.9}x ${settings.axis === "y" ? 0 :tiltY*1.9}px 2px #000000);
                 `;
                 console.log('h2TextTilt');
@@ -340,7 +340,7 @@
                 elTextTilt.style.textShadow = `
                     ${settings.axis === "x" ? 0 :-tiltX*1.9}px ${settings.axis === "y" ? 0 :tiltY*1.9}px 1px rgba(0,0,0,0.5)
                 `;
-                h2TextTilt.style.filter = `
+                h2TextTilt.style.webkitFilter  = `
                     drop-shadow(${settings.axis === "x" ? 0 :-tiltX*1.9}x ${settings.axis === "y" ? 0 :tiltY*1.9}px 2px #000000);
                 `;
             }
