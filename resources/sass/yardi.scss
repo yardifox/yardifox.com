@@ -166,7 +166,7 @@ html{
                         &:hover{
                             .panel{
                                 &.loaded{
-                                    transition: max-height .75s ease-in, max-width .25s ease-in , 0.0001s  !important;
+                                    transition: max-height .75s ease-in, max-width .25s ease-in  !important;
                                 }
                             }
                         }
