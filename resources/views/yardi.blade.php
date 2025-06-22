@@ -46,7 +46,7 @@
         @yield('header')
     </div>
     <header class="header" id="header">
-        <button class="rippleBtn" id="navBtnAbout">
+        <button class="rippleBtn" id="navBtnAbout" aria-lable="About Section">
 
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2.25 -2.635 13.31 5.045" style="margin-top: -50px;max-width: 160px;cursor: pointer;">
                 <g>
@@ -55,7 +55,7 @@
                 </g>
             </svg>
         </button>
-        <button class="rippleBtn" style="background:transparent;">
+        <button class="rippleBtn" style="background:transparent;" aria-label="Work Section">
             <svg class="navBtn" id="navBtnWork" viewBox="266.5,143.5,391,178" xmlns="http://www.w3.org/2000/svg" style="margin-top: -50px;max-width: 160px;cursor: pointer;">
                 <g>
                     <path fill="#FF0066" d="M267,144l390,47l-8,98l-356,32z"></path>
@@ -64,7 +64,7 @@
                 </g>
             </svg>
         </button>
-        <button class="rippleBtn"  id="navBtnContact">
+        <button class="rippleBtn"  id="navBtnContact" aria-label="Contact Section">
             Contact
         </button>
     </header>
@@ -532,10 +532,13 @@
                 let currentScroll = document.documentElement.scrollTop || document.body.scrollTop; // Get Current Scroll Value
 
                 let nameH1 = document.getElementById('name');
+                let infoPane = document.getElementById('infoPane');
                 scrollPosY = (window.scrollY / document.body.clientHeight);
                 shadowScrollMultipliyer =  (scrollPosY * 0.40) * 9.95 + 1;
                 if(document.body.clientWidth > 550){
-                    nameH1.style.paddingTop = scrollPosY *8.23 < 4 ? scrollPosY *8.23 +'em' : '4em';
+                    // nameH1.style.paddingTop = scrollPosY *8.23 < 4 ? scrollPosY *8.23 +'em' : '4em';
+                    nameH1.style.transform  = scrollPosY *8.23 < 4 ? `translateY(${scrollPosY * 8.23}em)` : '4em';
+                    infoPane.style.transform  = scrollPosY *8.23 < 4 ? `translateY(${scrollPosY * 8.23}em)` : '4em';
                 }
                 if (currentScroll > 0 && lastScroll <= currentScroll){
                     lastScroll = currentScroll;
