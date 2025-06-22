@@ -57,6 +57,7 @@
            script.src = "{{ asset('js/test.js') }}";
            script.async = true;
            script.type = "module";
+           script.defer = true;
            script.onload = () =>{
                console.log('Three.js loaded.');
            }
