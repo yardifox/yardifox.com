@@ -156,6 +156,7 @@
         const paneShadow = document.getElementById('paneShadow');
         const ypName = document.getElementById('name');
         let shadowScrollMultipliyer = 1;
+
         function onLoadCallback() {
             grecaptcha.render(document.querySelector('.g-recaptcha'), {
                 sitekey: '6Lc-S2ErAAAAADZNX3frKgGJ95Ns-VKUEhwrKjLN',

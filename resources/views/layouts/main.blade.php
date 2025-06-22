@@ -50,7 +50,23 @@
 <body class="app">
 @yield('content')
 
+<script type="text/javascript">
+    (function(){
+        window.addEventListener('load',() =>{
+           const script = document.createElement('script');
+           script.src = "{{ asset('js/test.js') }}";
+           script.async = true;
+           script.type = "module";
+           script.onload = () =>{
+               console.log('Three.js loaded.');
+           }
+           document.body.appendChild(script);
+        });
+    })();
+</script>
+<!--
 <script type="module" src="{{ asset('js/test.js') }}"></script>
+-->
 @yield('scripts')
 </body>
 </html>
