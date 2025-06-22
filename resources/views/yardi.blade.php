@@ -156,6 +156,8 @@
         // Lazy Load Recaptcha
         let recaptchaLoaded = false;
 
+        let scrollPosY = getScrollY();
+
         function loadRecaptcha(){
             if(recaptchaLoaded) return;
 
@@ -249,6 +251,8 @@
             const navWork = el("#navBtnWork");
             const navAbout = el("#navBtnAbout");
             const navContact = el("#navBtnContact");
+
+
             const settings = {
                 reverse: 1,        // Reverse tilt: 1, 0
                 max: 20,           // Max tilt: 35
@@ -265,6 +269,11 @@
             }
 
             const tilt = (evt) => {
+                let scrollY = getScrollY();
+                let tiltTranslateY = `translateY(0)`;
+                if(document.body.clientWidth > 550){
+                    tiltTranslateY = scrollY *8.23 < 7 ? `translateY(${scrollPosY * 8.23}em)` : 'translateY(4em)';
+                }
 
                 const bcr = elWrap.getBoundingClientRect();
                 const x = Math.min(1, Math.max(0, (evt.clientX - bcr.left) / bcr.width));
@@ -274,6 +283,7 @@
                 const tiltY = reverse * (y * settings.max - settings.max / 2);
                 elTilt.style.transition = `0s ease`;
                 elTilt.style.transform = `
+                ${tiltTranslateY}
                 rotateX(${settings.axis === "x" ? 0 : tiltY}deg)
                 rotateY(${settings.axis === "y" ? 0 : tiltX}deg)
                 scale(${settings.scale})
@@ -474,6 +484,10 @@
             }
         });
 
+        function getScrollY(){
+            return (window.scrollY / document.body.clientHeight);
+        }
+
         /**
          * Ninja Character code
          */
@@ -533,12 +547,12 @@
 
                 let nameH1 = document.getElementById('name');
                 let infoPane = document.getElementById('infoPane');
-                scrollPosY = (window.scrollY / document.body.clientHeight);
+                scrollPosY = getScrollY();
                 shadowScrollMultipliyer =  (scrollPosY * 0.40) * 9.95 + 1;
                 if(document.body.clientWidth > 550){
                     // nameH1.style.paddingTop = scrollPosY *8.23 < 4 ? scrollPosY *8.23 +'em' : '4em';
-                    nameH1.style.transform  = scrollPosY *8.23 < 6 ? `translateY(${scrollPosY * 8.23}em)` : '4em';
-                    infoPane.style.transform  = scrollPosY *8.23 < 7 ? `translateY(${scrollPosY * 8.23}em)` : '4em';
+                    nameH1.style.transform  = scrollPosY *8.23 < 6 ? `translateY(${scrollPosY * 8.23}em)` : `translateY(4em)`;
+                    infoPane.style.transform  = scrollPosY *8.23 < 7 ? `translateY(${scrollPosY * 8.23}em)` : `translateY(4em)`;
                 }
                 if (currentScroll > 0 && lastScroll <= currentScroll){
                     lastScroll = currentScroll;
