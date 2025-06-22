@@ -306,6 +306,8 @@
                 h2TextTilt.style.filter = `
                     drop-shadow(${settings.axis === "x" ? 0 :-tiltX*1.9}x ${settings.axis === "y" ? 0 :tiltY*1.9}px 2px #000000);
                 `;
+                console.log('h2TextTilt');
+                console.log(h2)
             }
             const touchTilt = (evt) => {
                 let scrollY = getScrollY();
