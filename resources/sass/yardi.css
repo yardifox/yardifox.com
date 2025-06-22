@@ -172,12 +172,12 @@ html body.app .wrap .section.attract #paneShadow {
   border-radius: 20px;
   /* box-shadow: -12px 88px 34px #000000; */
   /* box-shadow: 0 88px 34px #000000; */
-  box-shadow: 0 88px 21px #000, 0 95px 40px #000, 0 98px 80px #000;
+  box-shadow: 0 88px 21px rgba(0, 0, 0, 0), 0 95px 40px rgba(0, 0, 0, 0), 0 98px 80px rgba(0, 0, 0, 0);
   transition: 0.03s ease-out;
   opacity: 0;
 }
 html body.app .wrap .section.attract #paneShadow.show {
-  opacity: 1;
+  box-shadow: 0 88px 21px #000, 0 95px 40px #000, 0 98px 80px #000;
 }
 html body.app .wrap .section.attract:hover .panel.loaded {
   transition: max-height 0.75s ease-in, max-width 0.25s ease-in, translateY 0.4s !important;
