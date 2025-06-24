@@ -106,8 +106,15 @@
       1px 25px 42px rgba(16, 16, 16, .2);
 ">Yardi Fox</h1>
             <div class="panel" id="infoPane">
-                <div class="">
-
+                <div class="soc-slide" id="bsPanel">
+                    <div class="bs-posts">
+                        <div class="bs-post">
+                            <h4>Test Title</h4>
+                            <p>
+                                Test Desc
+                            </p>
+                        </div>
+                    </div>
                 </div>
                 <div class="infoCont" id="aboutContent">
                     <h2 id="infoContH2" style='font-size: 1.9em;font-family: "Russo One", sans-serif;'>Creative Technologist & Game Dev Explorer</h2>
@@ -185,6 +192,7 @@
 
         // Contact Form submission handling
         const infoPane = document.getElementById('infoPane');
+        const infoText = document.getElementById('aboutContent');
         const cForm = document.getElementById('ypContactForm');
         const paneShadow = document.getElementById('paneShadow');
         const ypName = document.getElementById('name');
@@ -556,10 +564,10 @@
             setTimeout((e)=>{
                 infoPane.classList.add('loaded');
                 paneShadow.classList.add('loaded');
-            },1200);
+            },900);
             setTimeout((e)=>{
                 infoPane.classList.add('extended');
-            },1800);
+            },1200);
             setTimeout((e)=>{
                 infoPane.style.minHeight = '300px';
             },2200);
@@ -588,6 +596,9 @@
                 ninja.style.left = sx + 'px';
                 ninja.style.top = sy+ 'px';
 
+                const paneBgStyle = window.getComputedStyle(infoPane,'::after');
+                const paneBgWidth = paneBgStyle.getPropertyValue('width');
+
                 // update shadow width:
                 const paneStyle = window.getComputedStyle(infoPane);
                 // paneShadow.style.opacity = paneStyle.opacity;
@@ -595,6 +606,10 @@
                 ypName.style.transform = dampenMatrix3D(pTransform,0.12);
                 const rotateY = extractRotateYFromMatrix3D(pTransform);
                 let pWidth = parseInt(paneStyle.width);
+                // const infoWidth = pWidth * 0.85;
+                const infoWidth = parseInt(paneBgWidth) * 0.85;
+
+                infoText.style.width = infoWidth+'px';
                 //paneShadow.style.transform = rotateY ? `rotateX(${rotateY.toFixed(2)}deg`: '';
                 paneShadow.style.transform = dampenMatrix3D(pTransform,0.19);
                 paneShadow.style.width = rotateY ? (pWidth  -(Math.abs(rotateY) * 3.23))+'px' : pWidth+'px';

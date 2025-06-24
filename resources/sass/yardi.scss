@@ -142,7 +142,8 @@ html{
                             border-radius: 12px;
                             background-color: gray;
                             position: relative;
-                            overflow: hidden;
+                            z-index: 1;
+                            overflow: visible;
                             opacity:0;
                             /*
                             max-width: 100%;
@@ -158,13 +159,76 @@ html{
                             background-repeat: repeat, repeat;
                             background-size: cover, cover;
                             color: #fff;
+                            /*
                             border-top: 2px solid rgb(171, 194, 221);
                             border-left: 1px solid rgb(110, 159, 216);
+                            */
                             text-shadow: 1px 1px 2px rgba(0, 0, 0, .7);
                             transition: opacity 0.4s ease-out, max-height .75s ease-in, max-width .25s ease-in, translateY 0.4s , transform 0.4s  !important;
-                            .infoCont{
-                                transition:opacity 0.49s ease-out;
+                            &:after{
+                                content: " ";
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                /* use this parameter with the :after bg right to show BS panel */
+                                right: 0;
+                                opacity: 1;
+                                bottom: 0;
+                                z-index: 2;
+                                background-image: linear-gradient(111.15deg, #0060f07c, #00040a99 92.78%), linear-gradient(112.99deg, #76afbbf2 -19.03%, #082162f2 102.17%);
+                                background-origin: padding-box, padding-box;
+                                background-position-x: 0, 0;
+                                background-position-y: 0, 0;
+                                background-repeat: repeat, repeat;
+                                background-size: cover, cover;
+                                color: #fff;
+                                border-top: 2px solid rgb(171, 194, 221);
+                                border-left: 1px solid rgb(110, 159, 216);
+                                border-radius: 12px;
+                                box-shadow: 6px 0 10px rgba(0, 0, 0, 0.4);
+                                background-color: gray;
+                            }
+                            .soc-slide{
+                                position: absolute;
+                                transition: 0.25s ease-out;
                                 opacity:0;
+                                height: 100%;
+                                width: 100%;
+                                background-color: #d7d7d7;
+                                top: 0;
+                                /* use this parameter with the :after bg right to show BS panel */
+                                right: 0px;
+                                z-index: -1;
+                                border-radius: 12px;
+                                box-shadow: 1px 0px 1px rgba(0, 0, 0, 0.5);
+                                color: #5f5f5f;
+                                font-size: 0.95rem;
+                                overflow:hidden;
+                                .bs-posts{
+                                    overflow-y:auto;
+                                    .bs-post{
+                                        a{
+
+                                        }
+                                        p{
+
+                                        }
+                                    }
+                                }
+                                h1,h2,h3,h4{
+                                    padding:20px;
+                                }
+                                p{
+                                    padding:20px;
+                                }
+                            }
+                            .infoCont{
+                                transition:opacity 0.09s ease-out;
+                                opacity:0;
+                                z-index: 10;
+                                position: relative;
+                                max-height: 100%;
+                                overflow-y:auto;
                             }
                             &.drop{
                                 transform:translateY(0);
@@ -173,11 +237,12 @@ html{
                                 max-height: 1900px !important;
                                 max-width: 60% !important;
                                 opacity:1;
-                                .infoCont{
-                                    opacity:1;
-                                }
                                 &.extended{
                                     transition: max-height .75s ease-in, max-width .25s ease-in , 0.3s ease !important;
+                                    .soc-slide,
+                                    .infoCont{
+                                        opacity:1;
+                                    }
                                 }
                                 .infoCont{
                                     text-shadow: rgba(0, 0, 0, 0.8) 2px 2px 1px;
@@ -192,19 +257,6 @@ html{
                                     }
                                 }
                             }
-                            /*
-                            &:after{
-                                content: " ";
-                                position: absolute;
-                                z-index: -1;
-                                bottom: 57px;
-                                left: -297px;
-                                height: 10%;
-                                width: 99%;
-                                box-shadow: -12px 88px 15px 0 rgba(0, 0, 0, 0.35);
-                                transform: skewX(73deg);
-                            }
-                             */
                         }
                         #paneShadow{
                             width: 536px;
