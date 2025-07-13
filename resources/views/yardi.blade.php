@@ -443,17 +443,21 @@
             document.body.addEventListener('touchmove',touchTilt);
 
            // if(window.DeviceMotionEvent){
+            function tiltPermission(){
                 if ( typeof( DeviceMotionEvent ) !== "undefined" && typeof( DeviceMotionEvent.requestPermission ) === "function" ) {
-                DeviceMotionEvent.requestPermission()
-                .then( response => {
-                    // (optional) Do something after API prompt dismissed.
-                    if ( response == "granted" ) {
-                        window.addEventListener('devicemotion',accelTilt);
-                    }
-                }).catch( console.error )
+                    DeviceMotionEvent.requestPermission()
+                        .then( response => {
+                            // (optional) Do something after API prompt dismissed.
+                            if ( response == "granted" ) {
+                                window.addEventListener('devicemotion',accelTilt);
+                            }
+                        }).catch( console.error )
                 } else {
                     alert( "DeviceMotionEvent is not defined" );
                 }
+            }
+            const ninj = document.getElementById('ninjaSprite');
+            ninj.addEventListener('click',tiltPermission);
            // }
             // document.body.addEventListener('devicemotion',accelTilt);
             document.body.addEventListener('touchend',recenter);
