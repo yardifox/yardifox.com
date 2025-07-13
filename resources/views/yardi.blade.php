@@ -441,7 +441,7 @@
             document.body.addEventListener('touchstart',touchTilt);
             document.body.addEventListener('touchmove',touchTilt);
             document.body.addEventListener('touchmove',touchTilt);
-
+            alert(DeviceMotionEvent);
            // if(window.DeviceMotionEvent){
             function tiltPermission(){
                 if ( typeof( DeviceMotionEvent ) !== "undefined" && typeof( DeviceMotionEvent.requestPermission ) === "function" ) {
