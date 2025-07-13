@@ -443,7 +443,7 @@
             document.body.addEventListener('touchmove',touchTilt);
             if(window.DeviceMotionEvent != undefined){
                 window.ondevicemotion = function(e){
-                    alert(e.accelerationIncludingGravity.x);
+                   // alert(e.accelerationIncludingGravity.x);
                 }
             }
             // alert(window.ondevicemotion);
