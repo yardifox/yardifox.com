@@ -442,7 +442,7 @@
             document.body.addEventListener('touchmove',touchTilt);
             document.body.addEventListener('touchmove',touchTilt);
 
-            if(window.DeviceMotionEvent){
+           // if(window.DeviceMotionEvent){
                 if ( typeof( DeviceMotionEvent ) !== "undefined" && typeof( DeviceMotionEvent.requestPermission ) === "function" ) {
                 DeviceMotionEvent.requestPermission()
                 .then( response => {
@@ -454,7 +454,7 @@
                 } else {
                     alert( "DeviceMotionEvent is not defined" );
                 }
-            }
+           // }
             // document.body.addEventListener('devicemotion',accelTilt);
             document.body.addEventListener('touchend',recenter);
             elWrap.addEventListener("mousemove", tilt);
