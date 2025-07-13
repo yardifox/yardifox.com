@@ -441,6 +441,11 @@
             document.body.addEventListener('touchstart',touchTilt);
             document.body.addEventListener('touchmove',touchTilt);
             document.body.addEventListener('touchmove',touchTilt);
+            if(window.DeviceMotionEvent != undefined){
+                window.ondevicemotion = (e) =>{
+                    alert(e.accelerationIncludingGravity.x);
+                }
+            }
             alert(DeviceMotionEvent);
            // if(window.DeviceMotionEvent){
             function tiltPermission(){
@@ -458,6 +463,7 @@
             }
             const ninj = document.getElementById('header');
             ninj.addEventListener('click',tiltPermission);
+
            // }
             // document.body.addEventListener('devicemotion',accelTilt);
             document.body.addEventListener('touchend',recenter);
