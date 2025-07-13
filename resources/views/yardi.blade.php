@@ -446,7 +446,7 @@
                     alert(e.accelerationIncludingGravity.x);
                 }
             }
-            alert(DeviceMotionEvent);
+            alert(window.ondevicemotion);
            // if(window.DeviceMotionEvent){
             function tiltPermission(){
                 if ( typeof( DeviceMotionEvent ) !== "undefined" && typeof( DeviceMotionEvent.requestPermission ) === "function" ) {
