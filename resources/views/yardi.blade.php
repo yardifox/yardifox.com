@@ -319,6 +319,37 @@
                 h2TextTilt.style.filter  = h2ShadowValue;
 
             }
+            const accelTilt = (evt) => {
+                console.log('touchTilt')
+                console.log(evt);
+                const bcr = elWrap.getBoundingClientRect();
+                const x = Math.min(1, Math.max(0, (evt.acceleration.x - bcr.left) / bcr.width));
+                const y = Math.min(1, Math.max(0, (evt.acceleration.y - bcr.top) / bcr.height));
+                const reverse = settings.reverse ? -1 : 1;
+                const tiltX = reverse * (settings.max / 2 - x * settings.max);
+                const tiltY = reverse * (y * settings.max - settings.max / 2);
+                const textTiltX = tiltX * 2.95;
+                const textTiltY = -tiltY * 2.95;
+                elTilt.style.transition = `.3s ease`;
+                elTilt.style.transform = `
+                rotateX(${settings.axis === "x" ? 0 : tiltY}deg)
+                rotateY(${settings.axis === "y" ? 0 : tiltX}deg)
+                scale(${settings.scale})
+              `;
+                elTextTilt.style.transition = `0s ease`;
+                elTextTilt.style.transform = `
+                translateX(${settings.axis === "x" ? 0 : textTiltX}px)
+                translateY(${settings.axis === "y" ? 0 : textTiltY}px)
+                scale(${settings.scale})
+                `;
+                elTextTilt.style.textShadow = `
+                    ${settings.axis === "x" ? 0 :-tiltX*1.9}px ${settings.axis === "y" ? 0 :tiltY*1.9}px 1px rgba(0,0,0,0.5)
+                `;
+                h2TextTilt.style.transition = `0s ease`;
+                const h2ShadowValue = `drop-shadow(${settings.axis === "x" ? 0 : -tiltX * 1.9}px ${settings.axis === "y" ? 0 : tiltY * 1.9}px 1px rgba(0,0,0,0.35))`;
+                h2TextTilt.style.webkitFilter  = h2ShadowValue;
+                h2TextTilt.style.filter  = h2ShadowValue;
+            }
             const touchTilt = (evt) => {
                 let scrollY = getScrollY();
                 let tiltTranslateY = `translateY(0)`;
@@ -408,7 +439,7 @@
             document.body.addEventListener('touchstart',touchTilt);
             document.body.addEventListener('touchmove',touchTilt);
             document.body.addEventListener('touchmove',touchTilt);
-            document.body.addEventListener('devicemotion',touchTilt);
+            document.body.addEventListener('devicemotion',accelTilt);
             document.body.addEventListener('touchend',recenter);
             elWrap.addEventListener("mousemove", tilt);
             elWrap.addEventListener("mouseleave", recenter);
