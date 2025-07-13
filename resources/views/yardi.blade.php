@@ -456,7 +456,7 @@
                     alert( "DeviceMotionEvent is not defined" );
                 }
             }
-            const ninj = document.getElementById('ninjaSprite');
+            const ninj = document.getElementById('header');
             ninj.addEventListener('click',tiltPermission);
            // }
             // document.body.addEventListener('devicemotion',accelTilt);
