@@ -408,6 +408,7 @@
             document.body.addEventListener('touchstart',touchTilt);
             document.body.addEventListener('touchmove',touchTilt);
             document.body.addEventListener('touchmove',touchTilt);
+            document.body.addEventListener('devicemotion',touchTilt);
             document.body.addEventListener('touchend',recenter);
             elWrap.addEventListener("mousemove", tilt);
             elWrap.addEventListener("mouseleave", recenter);
