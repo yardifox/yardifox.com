@@ -439,7 +439,11 @@
             document.body.addEventListener('touchstart',touchTilt);
             document.body.addEventListener('touchmove',touchTilt);
             document.body.addEventListener('touchmove',touchTilt);
-            document.body.addEventListener('devicemotion',accelTilt);
+            alert(window.DeviceMotionEvent);
+            if(window.DeviceMotionEvent){
+                window.addEventListener('devicemotion',accelTilt);
+            }
+            // document.body.addEventListener('devicemotion',accelTilt);
             document.body.addEventListener('touchend',recenter);
             elWrap.addEventListener("mousemove", tilt);
             elWrap.addEventListener("mouseleave", recenter);
