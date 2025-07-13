@@ -442,7 +442,7 @@
             document.body.addEventListener('touchmove',touchTilt);
             document.body.addEventListener('touchmove',touchTilt);
             if(window.DeviceMotionEvent != undefined){
-                window.ondevicemotion = (e) =>{
+                window.ondevicemotion = function(e){
                     alert(e.accelerationIncludingGravity.x);
                 }
             }
