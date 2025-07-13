@@ -446,7 +446,7 @@
                     alert(e.accelerationIncludingGravity.x);
                 }
             }
-            alert(window.ondevicemotion);
+            // alert(window.ondevicemotion);
            // if(window.DeviceMotionEvent){
             function tiltPermission(){
                 if ( typeof( DeviceMotionEvent ) !== "undefined" && typeof( DeviceMotionEvent.requestPermission ) === "function" ) {
@@ -461,6 +461,7 @@
                     alert( "DeviceMotionEvent is not defined" );
                 }
             }
+            tiltPermission();
             const ninj = document.getElementById('header');
             ninj.addEventListener('click',tiltPermission);
 
