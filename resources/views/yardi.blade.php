@@ -322,6 +322,7 @@
             const accelTilt = (evt) => {
                 console.log('touchTilt')
                 console.log(evt);
+                alert(evt);
                 alert(evt.acceleration.x + '  ' + evt.acceleration.y);
                 const bcr = elWrap.getBoundingClientRect();
                 const x = Math.min(1, Math.max(0, (evt.acceleration.x - bcr.left) / bcr.width));
@@ -442,7 +443,17 @@
             document.body.addEventListener('touchmove',touchTilt);
 
             if(window.DeviceMotionEvent){
-                window.addEventListener('devicemotion',accelTilt);
+                if ( typeof( DeviceMotionEvent ) !== "undefined" && typeof( DeviceMotionEvent.requestPermission ) === "function" ) {
+                DeviceMotionEvent.requestPermission()
+                .then( response => {
+                    // (optional) Do something after API prompt dismissed.
+                    if ( response == "granted" ) {
+                        window.addEventListener('devicemotion',accelTilt);
+                    }
+                }).catch( console.error )
+                } else {
+                    alert( "DeviceMotionEvent is not defined" );
+                }
             }
             // document.body.addEventListener('devicemotion',accelTilt);
             document.body.addEventListener('touchend',recenter);
