@@ -322,8 +322,8 @@
             const accelTilt = (evt) => {
                 console.log('touchTilt')
                 console.log(evt);
-                alert(evt);
-                alert(evt.acceleration.x + '  ' + evt.acceleration.y);
+                // alert(evt);
+                // alert(evt.acceleration.x + '  ' + evt.acceleration.y);
                 const bcr = elWrap.getBoundingClientRect();
                 const x = Math.min(1, Math.max(0, (evt.acceleration.x - bcr.left) / bcr.width));
                 const y = Math.min(1, Math.max(0, (evt.acceleration.y - bcr.top) / bcr.height));
