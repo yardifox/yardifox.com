@@ -328,8 +328,6 @@
             const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
 
             const accelTilt = (evt) => {
-
-                /*
                 // Prefer gravity-included acceleration (stable tilt signal)
                 const a = evt.accelerationIncludingGravity || evt.acceleration;
                 if (!a) return;
@@ -358,6 +356,7 @@
                     ax = -ax;
                     ay = -ay;
                 }
+
                 // Convert gravity vector to tilt angles (degrees)
                 // Roll: left/right tilt, Pitch: forward/back tilt
                 const roll  = Math.atan2(ax, az) * (180 / Math.PI);
@@ -370,64 +369,8 @@
                 const tiltX = clamp(reverse * (-roll),  -settings.accelMax, settings.accelMax); // rotateY
                 const tiltY = clamp(yReverse * ( pitch), -settings.accelMax, settings.accelMax); // rotateX
 
-                 */
-                const a = evt.accelerationIncludingGravity || evt.acceleration;
-                if (!a) return;
-
-                let ax = a.x ?? 0;
-                let ay = a.y ?? 0;
-                let az = a.z ?? 0;
-
-                // Orientation compensation (same as before)
-                const angle =
-                    (screen.orientation && typeof screen.orientation.angle === "number")
-                        ? screen.orientation.angle
-                        : (typeof window.orientation === "number" ? window.orientation : 0);
-
-                if (angle === 90) [ax, ay] = [ay, -ax];
-                else if (angle === -90 || angle === 270) [ax, ay] = [-ay, ax];
-                else if (angle === 180) { ax = -ax; ay = -ay; }
-
-                // ✅ Stable tilt formulas (avoid az sign flip chaos)
-                // pitch: forward/back, roll: left/right
-                const pitch = Math.atan2(-ax, Math.sqrt(ay * ay + az * az)) * (180 / Math.PI);
-                const roll  = Math.atan2(ay, az) * (180 / Math.PI);
-
-                // Invert if you want “panel stays facing up”
-                const reverse = settings.reverse ? -1 : 1;
-
-                // Sensitivity knobs:
-                const sensitivity = settings.sensitivity ?? 1.6; // ↑ more responsive without changing max range
-                const deadzone = settings.deadzone ?? 0.4;       // degrees to ignore tiny jitter
-                const smoothing = settings.smoothing ?? 0.15;    // 0..1 (lower = smoother, less twitchy)
-
-                let targetX = reverse * (-roll)  * sensitivity; // rotateY
-                let targetY = reverse * ( pitch) * sensitivity; // rotateX
-
-                // Deadzone to stop micro jitter
-                if (Math.abs(targetX) < deadzone) targetX = 0;
-                if (Math.abs(targetY) < deadzone) targetY = 0;
-
-                // Clamp to range
-                targetX = clamp(targetX, -settings.max, settings.max);
-                targetY = clamp(targetY, -settings.max, settings.max);
-
-                // Smooth it (low-pass filter)
-                smoothedX = lerp(smoothedX, targetX, smoothing);
-                smoothedY = lerp(smoothedY, targetY, smoothing);
-
-                // (optional) rate limit to stop sudden snaps
-                const maxStep = settings.maxStep ?? 2.0; // degrees per event
-                smoothedX = clamp(smoothedX, targetX - maxStep, targetX + maxStep);
-                smoothedY = clamp(smoothedY, targetY - maxStep, targetY + maxStep);
-
-                // Use smoothed values for transforms
-                const tiltX = smoothedX;
-                const tiltY = smoothedY;
-
                 const textTiltX = tiltX * 2.95;
                 const textTiltY = -tiltY * 2.95;
-
 
                 elTilt.style.transition = `.6s ease`;
                 elTilt.style.transform = `
