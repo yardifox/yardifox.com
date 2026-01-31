@@ -447,7 +447,7 @@
                 }
             }
             // alert(window.ondevicemotion);
-           // if(window.DeviceMotionEvent){
+           // if(window.DeviceMotionEventDeviceMotionEvent){
             function tiltPermission(){
                 if ( typeof( DeviceMotionEvent ) !== "undefined" && typeof( DeviceMotionEvent.requestPermission ) === "function" ) {
                     DeviceMotionEvent.requestPermission()
@@ -639,7 +639,17 @@
             },3200);
             console.log('ninja.js loaded');
             let ninja = document.querySelector('#ninjaSprite');
+            /*
             ninja.style.position = "absolute";
+             */
+
+            ninja.style.position = "fixed";
+            ninja.style.left = "0px";     // keep your sx working
+            ninja.style.bottom = "0px";   // ground is always viewport bottom
+            ninja.style.top = "auto";     // important: don't fight bottom
+
+
+            let ny = 0;
 
             let sx = 0;
             let sy = 0;
@@ -647,6 +657,48 @@
             let vxr = 0;
             let vy = 0;
             let spriteHeight = ninja.offsetHeight;
+
+            const gravity = 0.85;         // tune
+            const maxFall = 38;           // tune
+            const scrollLift = 0.035;
+            function updateNinja() {
+                // horizontal
+                sx += vxl + vxr;
+
+                // gravity
+                vy = Math.min(maxFall, vy + gravity);
+                ny -= vy; // subtract because positive vy means falling toward ground (y -> 0)
+
+                // clamp to ground
+                if (ny < 0) {
+                    ny = 0;
+                    vy = 0;
+                }
+
+                ninja.style.left = sx + "px";
+                ninja.style.transform = `translateY(${-ny}px)`;
+
+                requestAnimationFrame(updateNinja);
+            }
+            updateNinja();
+
+            let ninjaLastScroll = window.scrollY;
+
+            window.addEventListener("scroll", () => {
+                const nowScroll = window.scrollY;
+                const delta = nowScroll - lastScroll;
+                ninjaLastScroll = nowScroll;
+
+                if (delta > 0) {
+                    // scrolling DOWN => ground "falls away" => kick ninja upward
+                    // (this is the key: do NOT directly change y; adjust velocity)
+                    vy -= delta * scrollLift;
+                } else {
+                    // scrolling UP => stays grounded (no lift)
+                    // optional: if you want to hard-force no airtime on scroll up:
+                    // y = 0; vy = 0;
+                }
+            }, { passive: true });
 
             function update(){
                 sx +=  vxl;
@@ -659,8 +711,8 @@
                 // console.log((window.innerHeight + Math.round(window.scrollY)));
                 // console.log(sy + spriteHeight);
 
-                ninja.style.left = sx + 'px';
-                ninja.style.top = sy+ 'px';
+                // ninja.style.left = sx + 'px';
+                // ninja.style.top = sy+ 'px';
 
                 const paneBgStyle = window.getComputedStyle(infoPane,'::after');
                 const paneBgWidth = paneBgStyle.getPropertyValue('width');
