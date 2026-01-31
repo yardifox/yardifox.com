@@ -375,7 +375,7 @@
                     scale(${settings.scale})
                   `;
 
-                elTextTilt.style.transition = `0s ease`;
+                elTextTilt.style.transition = `3s ease`;
                 elTextTilt.style.transform = `
                     translateX(${settings.axis === "x" ? 0 : textTiltX}px)
                     translateY(${settings.axis === "y" ? 0 : textTiltY}px)
