@@ -268,7 +268,7 @@
             const settings = {
                 reverse: 1,        // Reverse tilt: 1, 0
                 max: 20,           // Max tilt: 35
-                accelMax: 9,
+                accelMax: 6,
                 accelRevers: 0,
                 perspective: 1000, // Parent perspective px: 1000
                 scale: 1,          // Tilt element scale factor: 1.0
@@ -369,7 +369,7 @@
                 const textTiltX = tiltX * 2.95;
                 const textTiltY = -tiltY * 2.95;
 
-                elTilt.style.transition = `.4s ease`;
+                elTilt.style.transition = `.6s ease`;
                 elTilt.style.transform = `
                     rotateX(${settings.axis === "x" ? 0 : tiltY}deg)
                     rotateY(${settings.axis === "y" ? 0 : tiltX}deg)
