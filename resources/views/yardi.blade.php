@@ -361,9 +361,10 @@
 
                 // Invert so the panel appears to "stay facing up" as the device tilts
                 const reverse = settings.accelRevers ? -1 : 1;
+                const yReverse = settings.reverse ? -1 : 1;
 
                 const tiltX = clamp(reverse * (-roll),  -settings.accelMax, settings.accelMax); // rotateY
-                const tiltY = clamp(reverse * ( pitch), -settings.accelMax, settings.accelMax); // rotateX
+                const tiltY = clamp(yReverse * ( pitch), -settings.accelMax, settings.accelMax); // rotateX
 
                 const textTiltX = tiltX * 2.95;
                 const textTiltY = -tiltY * 2.95;
