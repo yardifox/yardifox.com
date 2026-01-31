@@ -268,6 +268,7 @@
             const settings = {
                 reverse: 1,        // Reverse tilt: 1, 0
                 max: 20,           // Max tilt: 35
+                accelMax: 20,
                 perspective: 1000, // Parent perspective px: 1000
                 scale: 1,          // Tilt element scale factor: 1.0
                 axis: "",          // Limit axis. "y", "x"
@@ -319,6 +320,69 @@
                 h2TextTilt.style.filter  = h2ShadowValue;
 
             }
+
+            const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
+
+            const accelTilt = (evt) => {
+                // Prefer gravity-included acceleration (stable tilt signal)
+                const a = evt.accelerationIncludingGravity || evt.acceleration;
+                if (!a) return;
+
+                let ax = a.x ?? 0;
+                let ay = a.y ?? 0;
+                let az = a.z ?? 0;
+
+                // Screen orientation compensation (portrait/landscape)
+                // iOS Safari may use window.orientation; modern browsers use screen.orientation.angle
+                const angle =
+                    (screen.orientation && typeof screen.orientation.angle === "number")
+                        ? screen.orientation.angle
+                        : (typeof window.orientation === "number" ? window.orientation : 0);
+
+                // Rotate axes based on screen orientation
+                // angle is typically 0, 90, 180, -90
+                if (angle === 90) {
+                    // landscape right
+                    [ax, ay] = [ay, -ax];
+                } else if (angle === -90 || angle === 270) {
+                    // landscape left
+                    [ax, ay] = [-ay, ax];
+                } else if (angle === 180) {
+                    // upside down
+                    ax = -ax;
+                    ay = -ay;
+                }
+
+                // Convert gravity vector to tilt angles (degrees)
+                // Roll: left/right tilt, Pitch: forward/back tilt
+                const roll  = Math.atan2(ax, az) * (180 / Math.PI);
+                const pitch = Math.atan2(ay, az) * (180 / Math.PI);
+
+                // Invert so the panel appears to "stay facing up" as the device tilts
+                const reverse = settings.reverse ? -1 : 1;
+
+                const tiltX = clamp(reverse * (-roll),  -settings.max, settings.max); // rotateY
+                const tiltY = clamp(reverse * ( pitch), -settings.max, settings.max); // rotateX
+
+                const textTiltX = tiltX * 2.95;
+                const textTiltY = -tiltY * 2.95;
+
+                elTilt.style.transition = `.3s ease`;
+                elTilt.style.transform = `
+                    rotateX(${settings.axis === "x" ? 0 : tiltY}deg)
+                    rotateY(${settings.axis === "y" ? 0 : tiltX}deg)
+                    scale(${settings.scale})
+                  `;
+
+                elTextTilt.style.transition = `0s ease`;
+                elTextTilt.style.transform = `
+                    translateX(${settings.axis === "x" ? 0 : textTiltX}px)
+                    translateY(${settings.axis === "y" ? 0 : textTiltY}px)
+                  `;
+            };
+
+
+            /*
             const accelTilt = (evt) => {
                 console.log('touchTilt')
                 console.log(evt);
@@ -352,6 +416,9 @@
                 h2TextTilt.style.webkitFilter  = h2ShadowValue;
                 h2TextTilt.style.filter  = h2ShadowValue;
             }
+            */
+
+
             const touchTilt = (evt) => {
                 let scrollY = getScrollY();
                 let tiltTranslateY = `translateY(0)`;
