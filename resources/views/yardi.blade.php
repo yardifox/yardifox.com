@@ -268,7 +268,7 @@
             const settings = {
                 reverse: 1,        // Reverse tilt: 1, 0
                 max: 20,           // Max tilt: 35
-                accelMax: 20,
+                accelMax: 9,
                 perspective: 1000, // Parent perspective px: 1000
                 scale: 1,          // Tilt element scale factor: 1.0
                 axis: "",          // Limit axis. "y", "x"
@@ -361,8 +361,8 @@
                 // Invert so the panel appears to "stay facing up" as the device tilts
                 const reverse = settings.reverse ? -1 : 1;
 
-                const tiltX = clamp(reverse * (-roll),  -settings.max, settings.max); // rotateY
-                const tiltY = clamp(reverse * ( pitch), -settings.max, settings.max); // rotateX
+                const tiltX = clamp(reverse * (-roll),  -settings.accelMax, settings.accelMax); // rotateY
+                const tiltY = clamp(reverse * ( pitch), -settings.accelMax, settings.accelMax); // rotateX
 
                 const textTiltX = tiltX * 2.95;
                 const textTiltY = -tiltY * 2.95;
