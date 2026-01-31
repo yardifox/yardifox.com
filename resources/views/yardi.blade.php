@@ -458,7 +458,8 @@
                             }
                         }).catch( console.error )
                 } else {
-                    alert( "DeviceMotionEvent is not defined" );
+                   // alert( "DeviceMotionEvent is not defined" );
+                    console.error('DeviceMotionEvent is not defined');
                 }
             }
             tiltPermission();
@@ -623,15 +624,19 @@
                 paneShadow.classList.add('show');
             },600);
             setTimeout((e)=>{
-                infoPane.classList.add('loaded');
-                paneShadow.classList.add('loaded');
+                infoPane.classList.add('squish');
+                paneShadow.classList.add('squish');
             },900);
             setTimeout((e)=>{
-                infoPane.classList.add('extended');
+                infoPane.classList.add('loaded');
+                paneShadow.classList.add('loaded');
             },1200);
             setTimeout((e)=>{
-                infoPane.style.minHeight = '300px';
+                infoPane.classList.add('extended');
             },2200);
+            setTimeout((e)=>{
+                infoPane.style.minHeight = '300px';
+            },3200);
             console.log('ninja.js loaded');
             let ninja = document.querySelector('#ninjaSprite');
             ninja.style.position = "absolute";
