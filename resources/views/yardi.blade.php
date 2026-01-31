@@ -291,7 +291,7 @@
 
                 const bcr = elWrap.getBoundingClientRect();
                 const x = Math.min(1, Math.max(0, (evt.clientX - bcr.left) / bcr.width));
-                const y = Math.min(1, Math.max(0, (evt.clientY - bcr.top) / bcr.height));
+                const y = Math.min(1, Math.max(0, (evt.clientY - bcr.top) / bcr.height)) + 20;
 
                 const reverse = settings.reverse ? -1 : 1;
                 const tiltX = reverse * (settings.max / 2 - x * settings.max);
