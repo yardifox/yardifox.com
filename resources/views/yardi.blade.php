@@ -369,7 +369,7 @@
                 const textTiltX = tiltX * 2.95;
                 const textTiltY = -tiltY * 2.95;
 
-                elTilt.style.transition = `.3s ease`;
+                elTilt.style.transition = `.4s ease`;
                 elTilt.style.transform = `
                     rotateX(${settings.axis === "x" ? 0 : tiltY}deg)
                     rotateY(${settings.axis === "y" ? 0 : tiltX}deg)
