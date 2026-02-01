@@ -268,7 +268,7 @@
             const settings = {
                 reverse: 1,        // Reverse tilt: 1, 0
                 max: 20,           // Max tilt: 35
-                accelMax: 11,
+                accelMax: 9,
                 accelRevers: 0,
                 perspective: 1000, // Parent perspective px: 1000
                 scale: 1,          // Tilt element scale factor: 1.0
@@ -291,7 +291,7 @@
 
                 const bcr = elWrap.getBoundingClientRect();
                 const x = Math.min(1, Math.max(0, (evt.clientX - bcr.left) / bcr.width));
-                const y = Math.min(1, Math.max(0, (evt.clientY - bcr.top) / bcr.height)) + 20;
+                const y = Math.min(1, Math.max(0, (evt.clientY - bcr.top) / bcr.height));
 
                 const reverse = settings.reverse ? -1 : 1;
                 const tiltX = reverse * (settings.max / 2 - x * settings.max);
@@ -321,10 +321,7 @@
                 h2TextTilt.style.filter  = h2ShadowValue;
 
             }
-            let smoothedX = 0;
-            let smoothedY = 0;
 
-            const lerp = (a, b, t) => a + (b - a) * t;
             const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
 
             const accelTilt = (evt) => {
@@ -363,23 +360,22 @@
                 const pitch = Math.atan2(ay, az) * (180 / Math.PI);
 
                 // Invert so the panel appears to "stay facing up" as the device tilts
-                const reverse = settings.accelRevers ? -1 : 1;
-                const yReverse = settings.reverse ? -1 : 1;
+                const reverse = settings.reverse ? -1 : 1;
 
                 const tiltX = clamp(reverse * (-roll),  -settings.accelMax, settings.accelMax); // rotateY
-                const tiltY = clamp(yReverse * ( pitch), -settings.accelMax, settings.accelMax); // rotateX
+                const tiltY = clamp(reverse * ( pitch), -settings.accelMax, settings.accelMax); // rotateX
 
-                const textTiltX = tiltX * 2.01;
-                const textTiltY = -tiltY * 2.01;
+                const textTiltX = tiltX * 2.95;
+                const textTiltY = -tiltY * 2.95;
 
-                elTilt.style.transition = `.6s ease`;
+                elTilt.style.transition = `.3s ease`;
                 elTilt.style.transform = `
                     rotateX(${settings.axis === "x" ? 0 : tiltY}deg)
                     rotateY(${settings.axis === "y" ? 0 : tiltX}deg)
                     scale(${settings.scale})
                   `;
 
-                elTextTilt.style.transition = `.19s ease`;
+                elTextTilt.style.transition = `0s ease`;
                 elTextTilt.style.transform = `
                     translateX(${settings.axis === "x" ? 0 : textTiltX}px)
                     translateY(${settings.axis === "y" ? 0 : textTiltY}px)
