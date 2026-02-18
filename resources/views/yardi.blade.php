@@ -67,7 +67,13 @@
             </svg>
         </button>
         <button class="rippleBtn"  id="navBtnContact" aria-label="Contact Section">
-            Contact
+            <svg class="navBtn" id="navBtnContact" xmlns="http://www.w3.org/2000/svg"  viewBox="706.83333 584.42307 565.17949 207.15385" style="margin-top: -50px;max-width: 160px;cursor: pointer;">
+                <g>
+                    <!--<path d="M839.03244,664.73083l-33.53244,-80.30776l359,48.48718l107.51282,118.71795l-565.17949,39.94872z" id="Path-1" fill="#ff0066"/> -->
+                    <path id="Path-1" fill="#FF0066" d="M826.424,612.744L805.5,584.423l398.591,43.321l93.666,97.666l-594.666,54.334 L826.424,612.744z"/>
+                    <text x="608.38284" y="493.50805" transform="scale(1.4359,1.4359)"  fill="#ffffff" font-family="Verdana" font-size="50">Contact</text>
+                </g>
+            </svg>
         </button>
     </header>
     <div class="wrap">
