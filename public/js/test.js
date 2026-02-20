@@ -112,9 +112,12 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize( w, h );
 
 
-let insertElm = document.getElementById('workCont');
+// let insertElm = document.getElementById('workCont');
+let insertElm = document.getElementById('threeC');
 renderer.domElement.id = "threeDom";
-insertElm.insertAdjacentElement('afterend',renderer.domElement);
+// insertElm.insertAdjacentElement('afterend',renderer.domElement);
+insertElm.insertAdjacentElement('beforeend',renderer.domElement);
+insertElm.classList.add('open');
 //document.body.appendChild( renderer.domElement );
 
 // const controls = new OrbitControls(camera, renderer.domElement);

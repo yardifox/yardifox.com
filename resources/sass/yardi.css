@@ -6,7 +6,7 @@ html body.app {
   --attract-bg-color-03:#398235;
   --nav-grad-bg-color-01:#d37049;
   --nav-grad-bg-color-01:#851e08;
-  --name-exrude-color:#851e08;
+  --name-extrude-color:#851e08;
 }
 
 html {
@@ -98,7 +98,7 @@ html body.app .wrap .section.attract h1.name {
   font-style: italic;
   color: #c10000;
   /*color:#ffffff;*/
-  text-shadow: 0 1px 0 var(--name-exrude-color), 0 2px 0 var(--name-exrude-color), 0 3px 0 var(--name-exrude-color), 0 4px 0 var(--name-exrude-color), 0 5px 0 var(--name-exrude-color), 0 6px 0 var(--name-exrude-color), 0 7px 0 var(--name-exrude-color), 0 8px 0 var(--name-exrude-color), 0 9px 0 var(--name-exrude-color), 0 10px 0 var(--name-exrude-color), 0 11px 0 var(--name-exrude-color), 1px 15px 10px rgba(16, 16, 16, 0.3), 1px 20px 20px rgba(16, 16, 16, 0.2), 1px 25px 42px rgba(16, 16, 16, 0.2), 1px 30px 80px rgba(16, 16, 16, 0.3) !important;
+  text-shadow: 0 1px 0 var(--name-extrude-color), 0 2px 0 var(--name-extrude-color), 0 3px 0 var(--name-extrude-color), 0 4px 0 var(--name-extrude-color), 0 5px 0 var(--name-extrude-color), 0 6px 0 var(--name-extrude-color), 0 7px 0 var(--name-extrude-color), 0 8px 0 var(--name-extrude-color), 0 9px 0 var(--name-extrude-color), 0 10px 0 var(--name-extrude-color), 0 11px 0 var(--name-extrude-color), 1px 15px 10px rgba(16, 16, 16, 0.3), 1px 20px 20px rgba(16, 16, 16, 0.2), 1px 25px 42px rgba(16, 16, 16, 0.2), 1px 30px 80px rgba(16, 16, 16, 0.3) !important;
 }
 html body.app .wrap .section.attract h1.name:before {
   content: "Yardi Fox";
@@ -297,6 +297,20 @@ html body.app .wrap .section.work:before {
   bottom: -50px;
   -webkit-filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.7));
   filter: drop-shadow(17px 14px 5px rgba(0, 0, 0, 0.37));
+}
+html body.app .wrap .section.threeC {
+  padding: 0;
+  transition: 0.6s ease;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+}
+html body.app .wrap .section.threeC.open {
+  max-height: 1300px;
+  opacity: 1;
+}
+html body.app .wrap .section.threeC #threeDom {
+  background-color: blue;
 }
 html body.app .wrap .section.contact {
   min-height: 300px;
