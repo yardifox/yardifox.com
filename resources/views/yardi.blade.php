@@ -728,6 +728,7 @@
 
             let ny = 0;
 
+            let tx = 0;
             let sx = 0;
             let sy = 0;
             let vxl = 0;
@@ -735,12 +736,29 @@
             let vy = 0;
             let spriteHeight = ninja.offsetHeight;
 
+            const hSpeed = 12.5;
             const gravity = 0.85;         // tune
             const maxFall = 38;           // tune
             const scrollLift = 0.035;
+
+            window.addEventListener("mousemove", (e) => {
+                if(e.touches && e.touches.length){
+                    tx = e.touches[0].clientX;
+                } else if (e.changedTouches && e.changedTouches.length){
+                    tx = e.changedTouches[0].clientX;
+                }else{
+                    tx = e.clientX;
+                }
+            });
             function updateNinja() {
                 // horizontal
-                sx += vxl + vxr;
+                const dx = tx - sx;
+
+                // lerp
+                sx += dx * 0.078; // 0.1-0.3
+
+                // deadzone
+                if(Math.abs(dx) < 2) sx = tx - (ninja.style.width / 2);
 
                 // gravity
                 vy = Math.min(maxFall, vy + gravity);
@@ -752,8 +770,12 @@
                     vy = 0;
                 }
 
-                ninja.style.left = sx + "px";
-                ninja.style.transform = `translateY(${-ny}px)`;
+
+                console.log('///// SX --- :'+sx);
+                console.log('///// TX --- :'+tx);
+                console.log('///// ninja width --- :' + ninja.style.width);
+
+                ninja.style.transform = `translateY(${-ny}px) translateX(${sx}px)`;
 
                 requestAnimationFrame(updateNinja);
             }
@@ -771,6 +793,7 @@
                     // (this is the key: do NOT directly change y; adjust velocity)
                     vy -= delta * scrollLift;
                 } else {
+                    vy -= (delta * scrollLift)*2;
                     // scrolling UP => stays grounded (no lift)
                     // optional: if you want to hard-force no airtime on scroll up:
                     // y = 0; vy = 0;

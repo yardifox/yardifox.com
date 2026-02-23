@@ -53,13 +53,25 @@ html body.app .wrap .section.platformer {
 html body.app .wrap .section.platformer #ninjaSprite {
   width: 95px;
   height: 95px;
-  background-color: blue;
+  background-color: transparent;
   display: flex;
   justify-content: center;
   align-content: center;
   align-items: center;
   color: #fff;
   font-width: bold;
+  position: relative;
+}
+html body.app .wrap .section.platformer #ninjaSprite:after {
+  content: " ";
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: blue;
+  position: absolute;
+  animation: pulseOpacity 1.5s ease-in-out infinite;
 }
 html body.app .wrap .section.attract {
   min-height: 100% !important;
@@ -481,6 +493,17 @@ html body.app .threeDTitle {
   }
   html body.app .wrap .section.attract #paneShadow {
     bottom: 17% !important;
+  }
+}
+@keyframes pulseOpacity {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
