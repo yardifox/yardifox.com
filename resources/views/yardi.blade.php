@@ -753,9 +753,16 @@
             window.addEventListener("mousemove", (e) => {
                 handleInput(e);
             });
-            window.addEventListener('touchstart touchmove', (e) =>{
+            window.addEventListener("pointerdown", (e) => {
                 handleInput(e);
             });
+            window.addEventListener("pointermove", (e) => {
+                handleInput(e);
+            });
+            console.log('///// SX --- :'+sx);
+            console.log('///// TX --- :'+tx);
+            console.log('///// ninja width --- :' + ninja.style);
+            console.debug(ninja.style);
             function updateNinja() {
                 // horizontal
                 const dx = tx - sx;
@@ -777,9 +784,7 @@
                 }
 
 
-                console.log('///// SX --- :'+sx);
-                console.log('///// TX --- :'+tx);
-                console.log('///// ninja width --- :' + ninja.style.width);
+
 
                 ninja.style.transform = `translateY(${-ny}px) translateX(${sx}px)`;
 
