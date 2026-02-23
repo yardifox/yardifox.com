@@ -517,7 +517,7 @@
             }
             document.body.addEventListener('touchstart',touchTilt);
             document.body.addEventListener('touchmove',touchTilt);
-            document.body.addEventListener('touchmove',touchTilt);
+            // document.body.addEventListener('touchmove',touchTilt);
             if(window.DeviceMotionEvent != undefined){
                 window.ondevicemotion = function(e){
                    // alert(e.accelerationIncludingGravity.x);
@@ -756,7 +756,8 @@
                 console.warn('handleTouch called');
                 console.debug(e);
             }
-
+            document.body.addEventListener('touchstart',handleTouch);
+            document.body.addEventListener('touchmove',handleTouch);
             window.addEventListener("mousemove", (e) => {
                 handleInput(e);
             });
@@ -766,9 +767,6 @@
             window.addEventListener("pointermove", (e) => {
                 handleInput(e);
             });
-            const ga = document.getElementById('gameArea');
-            ga.addEventListener("touchstart", handleTouch, {passive: false});
-            ga.addEventListener("touchmove", handleTouch, {passive: false});
 
             console.log('///// SX --- :'+sx);
             console.log('///// TX --- :'+tx);
