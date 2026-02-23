@@ -753,6 +753,8 @@
             function handleTouch(e){
                 const t = e.touches[0] || e.changedTouches[0];
                 if(t) tx = t.clientX;
+                console.warn('handleTouch called');
+                console.debug(e);
             }
 
             window.addEventListener("mousemove", (e) => {
