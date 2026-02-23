@@ -753,7 +753,9 @@
             window.addEventListener("mousemove", (e) => {
                 handleInput(e);
             });
-            window.addEventListener('touchstart touchmove', handleInput(e));
+            window.addEventListener('touchstart touchmove', (e) =>{
+                handleInput(e);
+            });
             function updateNinja() {
                 // horizontal
                 const dx = tx - sx;
