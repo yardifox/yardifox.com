@@ -741,7 +741,7 @@
             const maxFall = 38;           // tune
             const scrollLift = 0.035;
 
-            window.addEventListener("mousemove", (e) => {
+            function handleInput(e){
                 if(e.touches && e.touches.length){
                     tx = e.touches[0].clientX;
                 } else if (e.changedTouches && e.changedTouches.length){
@@ -749,7 +749,11 @@
                 }else{
                     tx = e.clientX;
                 }
+            }
+            window.addEventListener("mousemove", (e) => {
+                handleInput(e);
             });
+            window.addEventListener('touchstart touchmove', handleInput(e));
             function updateNinja() {
                 // horizontal
                 const dx = tx - sx;
