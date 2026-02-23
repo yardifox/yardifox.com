@@ -58,7 +58,7 @@ html{
                                 bottom:0;
                                 background-color:blue;
                                 position:absolute;
-                                animation: pulseOpacity 1.5s ease-in-out infinite;
+                                animation: pulseOpacity 1.01s ease-in-out infinite;
                             }
                         }
                     }
@@ -557,7 +557,7 @@ html{
         opacity: 1;
     }
     50% {
-        opacity: 0;
+        opacity: 0.1;
     }
     100% {
         opacity: 1;
