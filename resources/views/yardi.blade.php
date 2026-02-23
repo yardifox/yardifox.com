@@ -780,11 +780,34 @@
                 sx += dx * 0.078; // 0.1-0.3
 
                 // deadzone
-                if(Math.abs(dx) < 2) sx = tx - (ninja.style.width / 2);
+                if(Math.abs(dx) < 2) sx = tx; // - (ninja.offsetWidth / 2);
 
                 // gravity
                 vy = Math.min(maxFall, vy + gravity);
                 ny -= vy; // subtract because positive vy means falling toward ground (y -> 0)
+
+                const ceilingRatio = 2/3;
+                const ceilingSoftZone = 220;    // px: how early the cushion starts
+                const ceilingK = 0.08;          // spring strength (0.05 - 0.15)
+                const ceilingDamp = 0.18;       // damp (0.12 - 0.30)
+                const hardCeilingPad = 10;      // px absolute max past ceiling
+
+                const ceiling = window.innerHeight * ceilingRatio;
+
+                const over = ny - ceiling;
+
+                if(ny > ceiling - ceilingSoftZone){
+                    const t = Math.min(1, (ny - (ceiling - ceilingSoftZone)) / ceilingSoftZone); // 0..1
+                    const spring = over * ceilingK;                     // stronger the higher you go
+                    const damp = (vy < 0 ? (-vy) * ceilingDamp : 0);    // only damp upward motion
+                    vy -= (spring + damp) * t;                          // push downward by increasing vy (since ny -=vy)
+                }
+
+                const hardCeiling = ceiling + hardCeilingPad;
+                if(ny > hardCeiling){
+                    ny = hardCeiling;
+                    if(vy < 0) vy = 0;
+                }
 
                 // clamp to ground
                 if (ny < 0) {
