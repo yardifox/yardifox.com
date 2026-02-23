@@ -19,6 +19,9 @@ html{
                 position: relative;
                 height: 100%;
                 z-index: 5;
+                #gameArea{
+                    touch-action:none;
+                }
                 /*
                 padding-bottom:80px;
                 */

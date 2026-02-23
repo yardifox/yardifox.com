@@ -77,7 +77,7 @@
         </button>
     </header>
     <div class="wrap">
-        <div class="section platformer">
+        <div class="section platformer" id="gameArea">
                <div id="ninjaSprite" class="sprite phx">(0.0)</div>
         </div>
         <div class="section attract" id="attractWrap">
@@ -750,6 +750,11 @@
                     tx = e.clientX;
                 }
             }
+            function handleTouch(e){
+                const t = e.touches[0] || e.changedTouches[0];
+                if(t) tx = t.clientX;
+            }
+
             window.addEventListener("mousemove", (e) => {
                 handleInput(e);
             });
@@ -759,6 +764,10 @@
             window.addEventListener("pointermove", (e) => {
                 handleInput(e);
             });
+            const ga = document.getElementById('gameArea');
+            ga.addEventListener("touchstart", handleTouch, {passive: false});
+            ga.addEventListener("touchmove", handleTouch, {passive: false});
+
             console.log('///// SX --- :'+sx);
             console.log('///// TX --- :'+tx);
             console.log('///// ninja width --- :' + ninja.style);
