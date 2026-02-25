@@ -584,9 +584,11 @@ html{
 @keyframes parallax-1{
     0% {
         top:10px;
+        filter:blur(15px);
     }
     100%{
         top:180%;
+        filter:blur(6px);
     }
 }
 @keyframes fade-in-out {
