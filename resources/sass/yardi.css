@@ -533,7 +533,7 @@ html body.app .threeDTitle {
     filter: blur(15px);
   }
   100% {
-    top: 180%;
+    top: 190%;
     filter: blur(6px);
   }
 }
@@ -543,6 +543,14 @@ html body.app .threeDTitle {
   }
   100% {
     opacity: 1;
+  }
+}
+@keyframes blur-in {
+  0% {
+    filter: blur(15px);
+  }
+  50% {
+    filter: blur(0);
   }
 }
 
