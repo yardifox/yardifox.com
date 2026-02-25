@@ -836,7 +836,7 @@
                     // (this is the key: do NOT directly change y; adjust velocity)
                     vy -= delta * scrollLift;
                 } else {
-                    vy -= (delta * scrollLift)*2;
+                    vy -= (delta * scrollLift)*100;
                     // scrolling UP => stays grounded (no lift)
                     // optional: if you want to hard-force no airtime on scroll up:
                     // y = 0; vy = 0;

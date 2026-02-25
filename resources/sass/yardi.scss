@@ -47,6 +47,8 @@ html{
                             align-items: center;
                             color:#fff;
                             font-width: bold;
+                            animation:fade-in-out forwards linear;
+                            animation-timeline:scroll();
 
                             position:relative;
                             &:after{
@@ -70,6 +72,8 @@ html{
                         justify-content: center;
                         align-items: flex-start;
                         pointer-events:all;
+                        position:relative;
+                        overflow:clip;
 
                         background: var(--attract-bg-color-01);
                         background: -moz-radial-gradient(center, ellipse cover, var(--attract-bg-color-01) 0%, var(--attract-bg-color-02) 44%, var(--attract-bg-color-03) 100%);
@@ -80,6 +84,20 @@ html{
                         background: radial-gradient(ellipse at center, #c9de96 0%, #8ab66b 44%, #398235 100%);
                         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c9de96', endColorstr='#398235', GradientType=1 );
 
+                        &:before{
+                            z-index: -1;
+                            content: " ";
+                            position: absolute;
+                            width: 100%;
+                            background-color: transparent;
+                            height: 70px;
+                            animation: parallax-1 forwards linear;
+                            animation-timeline: scroll();
+                            border-right: 0px solid transparent;
+                            border-top: 0px solid transparent;
+                            border-left: 2374px solid transparent;
+                            border-bottom: 93px solid #51914591;
+                        }
                         h1{
                             flex: 1 100%;
                             text-align: center;
@@ -561,5 +579,21 @@ html{
     }
     100% {
         opacity: 1;
+    }
+}
+@keyframes parallax-1{
+    0% {
+        top:10px;
+    }
+    100%{
+        top:180%;
+    }
+}
+@keyframes fade-in-out {
+    0% {
+        opacity:0;
+    }
+    100%{
+        opacity:1;
     }
 }
