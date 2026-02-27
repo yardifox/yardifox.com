@@ -546,6 +546,7 @@ html body.app .threeDTitle {
 }
 .halftone {
   /* animation: animateColor 2s linear infinite; */
+  mix-blend-mode: color-burn;
 }
 .halftone:after {
   content: " ";
@@ -558,7 +559,7 @@ html body.app .threeDTitle {
   right: 0;
   bottom: 0;
   z-index: -2;
-  opacity: 0.5;
+  opacity: 0.099;
   /* mask-image: linear-gradient(rgb(0 0 0), rgb(0 0 0 / 0)); */
   mask-image: linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0));
 }

@@ -597,6 +597,7 @@ html{
 }
 .halftone{
     /* animation: animateColor 2s linear infinite; */
+    mix-blend-mode: color-burn;
     &:after{
         content: " ";
         background-image: radial-gradient(circle at center, #558a47 0.25rem, transparent 0), radial-gradient(circle at center, #558a47 0.25rem, transparent 0);
@@ -608,7 +609,7 @@ html{
         right: 0;
         bottom: 0;
         z-index: -2;
-        opacity: 0.5;
+        opacity: .099;
         /* mask-image: linear-gradient(rgb(0 0 0), rgb(0 0 0 / 0)); */
         mask-image: linear-gradient(rgb(0 0 0), rgb(0 0 0 / 0%));
     }
