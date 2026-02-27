@@ -259,6 +259,20 @@
             loadButtons();
         }
         let navBtnArray = [];
+
+        for(let i = 0; i < 3; i++){
+            setTimeout(()=>{
+                const cloud = document.createElement('div');
+                cloud.classList.add("cloud");
+                cloud.style.top = `${Math.random() * 50  + 10}%`;
+                cloud.style.animation = `slide-across ${Math.floor(Math.random() * (35 - 12 + 1) + 12)}s linear infinite`;
+                let attractCont = document.querySelector('#attractWrap');
+                attractCont.prepend(cloud);
+                cloud.addEventListener("animationiteration", () =>{
+                    cloud.style.top = Math.floor(Math.random() * (60 - 12 + 1) + 12) + "%";
+                })
+            },Math.random() * 8200 + 1200);
+        }
         (function(){
             // show the main pane
 
