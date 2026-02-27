@@ -82,6 +82,7 @@
         </div>
         <div class="section attract" id="attractWrap">
             <div class="halftone"></div>
+            <div class="cloud"></div>
             <h1 class="name" id="name"  style="
     -webkit-transition: padding 0.1s linear;
     -moz-transition: padding 0.1s linear;
@@ -777,7 +778,7 @@
                 const dx = tx - sx;
 
                 // lerp
-                sx += dx * 0.078; // 0.1-0.3
+                sx += dx * 0.018; // 0.1-0.3
 
                 // deadzone
                 if(Math.abs(dx) < 2) sx = tx; // - (ninja.offsetWidth / 2);
