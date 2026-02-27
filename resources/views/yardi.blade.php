@@ -81,6 +81,7 @@
                <div id="ninjaSprite" class="sprite phx">(0.0)</div>
         </div>
         <div class="section attract" id="attractWrap">
+            <div class="halftone"></div>
             <h1 class="name" id="name"  style="
     -webkit-transition: padding 0.1s linear;
     -moz-transition: padding 0.1s linear;

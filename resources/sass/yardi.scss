@@ -98,6 +98,14 @@ html{
                             border-left: 2374px solid transparent;
                             border-bottom: 93px solid #51914591;
                         }
+                        .halftone{
+                            position:absolute;
+                            top:0;
+                            bottom:0;
+                            left:0;
+                            right:0;
+                            z-index:-2;
+                        }
                         h1{
                             flex: 1 100%;
                             text-align: center;
@@ -572,6 +580,23 @@ html{
                 }
             }
         }
+    }
+}
+.halftone{
+    &:after{
+        content: " ";
+        background-image: radial-gradient(circle at center, #558a47 0.25rem, transparent 0), radial-gradient(circle at center, #558a47 0.25rem, transparent 0);
+        background-size: 1.3rem 1.3rem;
+        background-position: 0 0, 0.65rem 0.65rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -2;
+        opacity: 0.5;
+        /* mask-image: linear-gradient(rgb(0 0 0), rgb(0 0 0 / 0)); */
+        mask-image: linear-gradient(rgb(0 0 0), rgb(0 0 0 / 0%));
     }
 }
 @keyframes pulseOpacity {

@@ -1,3 +1,11 @@
+:root{
+    --dotSize: 0.25rem;
+    --stop1: 3%;
+    --stop2: 60%;
+
+    --stop11: 0.06rem;
+    --stop22: 0.65rem;
+}
 html{
     body{
         &.app{
