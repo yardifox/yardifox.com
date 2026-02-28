@@ -265,10 +265,14 @@
                 const cloud = document.createElement('div');
                 cloud.classList.add("cloud");
                 cloud.style.top = `${Math.random() * 50  + 10}%`;
-                cloud.style.animation = `slide-across ${Math.floor(Math.random() * (35 - 12 + 1) + 12)}s linear infinite`;
+                cloud.style.scale  =`${Math.random() * (2 - 0.5) + 0.5}`;
+                cloud.style.opacity = `${Math.random() * (0.75 - 0.17) + 0.17}`;
+                    cloud.style.animation = `slide-across ${Math.floor(Math.random() * (35 - 12 + 1) + 12)}s linear infinite`;
                 let attractCont = document.querySelector('#attractWrap');
                 attractCont.prepend(cloud);
                 cloud.addEventListener("animationiteration", () =>{
+                    cloud.style.scale = `${Math.random() * (2 - 0.5) + 0.5}`;
+                    cloud.style.opacity = `${Math.random() * (0.75 - 0.17) + 0.17}`;
                     cloud.style.top = Math.floor(Math.random() * (60 - 12 + 1) + 12) + "%";
                 })
             },Math.random() * 8200 + 1200);
