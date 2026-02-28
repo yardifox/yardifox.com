@@ -760,18 +760,22 @@
             const maxFall = 38;           // tune
             const scrollLift = 0.035;
 
+            function clamp(v, min, max) {
+                return Math.max(min, Math.min(max, v));
+            }
+
             function handleInput(e){
                 if(e.touches && e.touches.length){
-                    tx = e.touches[0].clientX;
+                    tx = e.touches[0].clientX - ninja.offsetWidth / 2;
                 } else if (e.changedTouches && e.changedTouches.length){
-                    tx = e.changedTouches[0].clientX;
+                    tx = e.changedTouches[0].clientX - ninja.offsetWidth / 2;
                 }else{
-                    tx = e.clientX;
+                    tx = e.clientX - ninja.offsetWidth / 2;
                 }
             }
             function handleTouch(e){
                 const t = e.touches[0] || e.changedTouches[0];
-                if(t) tx = t.clientX;
+                if(t) tx = t.clientX - ninja.offsetWidth / 2;
                 console.warn('handleTouch called');
                 console.debug(e);
             }
@@ -801,6 +805,8 @@
                 // deadzone
                 if(Math.abs(dx) < 2) sx = tx; // - (ninja.offsetWidth / 2);
 
+
+
                 // gravity
                 vy = Math.min(maxFall, vy + gravity);
                 ny -= vy; // subtract because positive vy means falling toward ground (y -> 0)
@@ -827,6 +833,9 @@
                     ny = hardCeiling;
                     if(vy < 0) vy = 0;
                 }
+
+                // horizontal clamp
+                sx = clamp(sx, 0, window.innerWidth - ninja.offsetWidth);
 
                 // clamp to ground
                 if (ny < 0) {
