@@ -353,6 +353,9 @@ html{
                         min-height: 300px;
                         position:relative;
                         z-index:1;
+                        display:grid;
+                        justify-content: center;
+                        align-content: center;
                         &:before{
                             position: absolute;
                             content: "";
@@ -369,6 +372,32 @@ html{
                             bottom: -50px;
                             -webkit-filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, .7));
                             filter: drop-shadow(17px 14px 5px rgba(0, 0, 0, .37));
+                        }
+                        .marquee{
+                            width: 100%;
+                            min-height: 80px;
+                            background-color: #00808047;
+                            background-color: rgba(0,128,128,0.02);
+                            position: absolute;
+                            top: 50%;
+                            animation: marquee-parallax 1s forwards linear;
+                            animation-timeline:view();
+                            margin-top: -63px;
+                            transform: matrix(1, -0.025, 0.025, 1, 0.125, 0);
+
+                            //backdrop-filter: blur(4px);
+                            //-webkit-backdrop-filter: blur(4x);
+
+                            padding: 19px 0;
+                            .row{
+                                position: relative;
+                                width: 100%;
+                                min-height: 40px;
+                                background-color:rgba(173,0, 255, 0.02);
+                                margin-bottom: 15px;
+                                backdrop-filter: blur(4px);
+                                -webkit-backdrop-filter: blur(4px);
+                            }
                         }
                     }
                     &.threeC{
@@ -419,24 +448,37 @@ html{
                                 input{
                                     &[type="text"]{
                                         outline-offset: 0px;
-                                        outline: solid #ffffff 2px;
+                                        outline: solid #ffffff 0px;
+                                        border: 1px solid #ffffff;
                                         padding: 20px;
                                         box-shadow: 3px 3px 13px rgba(0, 0, 0, 0.23);
                                         flex: 1 100%;
                                         min-width: 250px;
                                         width: 37vw;
                                         max-width: 450px;
+                                        transition:box-shadow 0.3s ease, border 0.3s ease;
+                                        &:hover,&:focus,&:active{
+                                            box-shadow: 3px 3px 15px #0000005e;
+                                            border: 1px solid #dddddd;
+                                        }
                                     }
                                 }
                                 textarea{
                                     outline-offset: 0px;
-                                    outline: solid #dddddd 2px;
+                                    outline: solid #dddddd 0px;
+                                    border: 1px solid #ffffff;
                                     padding: 20px;
                                     box-shadow: 3px 3px 13px rgba(0, 0, 0, 0.23);
                                     min-width: 250px;
                                     width: 37vw;
                                     max-width: 450px;
                                     min-height:112px;
+                                    transition:box-shadow 0.3s ease, border 0.3s ease;
+                                    &:hover,&:focus,&:active{
+                                        box-shadow: 3px 3px 15px #0000005e;
+                                        border: 1px solid #dddddd;
+                                    }
+
                                 }
                             }
                             .grecaptcha-badge{
@@ -667,5 +709,13 @@ html{
     100% {
         /* End completely outside the right view */
         transform: translateX(100vw); /* Or 100% of the parent width if 100vw is not desired */
+    }
+}
+@keyframes marquee-parallax{
+    0%{
+        margin-top:-2px;
+    }
+    100%{
+        margin-top:-90px;
     }
 }

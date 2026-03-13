@@ -126,6 +126,7 @@ insertElm.classList.add('open');
 
 let sgb = null;
 var clock, mixer;
+// loader.load( './js/castle.glb', (gltf) =>{
 loader.load( './js/castle.glb', (gltf) =>{
     console.log('gltf');
     console.log(gltf);
@@ -139,6 +140,7 @@ loader.load( './js/castle.glb', (gltf) =>{
     scene.add(sgb)
     console.log(sgb);
     sgb.scale.setScalar(12);
+    // sgb.scale.setScalar(55);
 }, undefined, (error) => {
   console.log(error);
 });
