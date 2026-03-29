@@ -76,7 +76,7 @@
             </svg>
         </button>
     </header>
-    <div class="wrap">
+    <div class="wrap" role="main">
         <div class="section platformer" id="gameArea">
                <div id="ninjaSprite" class="sprite phx">(0.0)</div>
         </div>
@@ -117,7 +117,6 @@
                 <div class="soc-slide" id="bsPanel">
                     <div class="bs-posts">
                         <div class="bs-post">
-                            <h4>Test Title</h4>
                             <p>
                                 Test Desc
                             </p>
