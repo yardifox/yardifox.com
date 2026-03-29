@@ -1,5 +1,29 @@
 @extends('layouts.main')
 @section('head')
+    @php
+        $pageTitle = 'Yardi Fox – FullStack Creative Developer';
+        $pageDescription = "I'm Yardi Fox — a creative technologist and coder who approaches development as both a craft and a puzzle.";
+        $pageUrl = url()->current();
+        $pageImage = asset('img/social-share.jpg');
+        $twitterHandle = '@yardifox';
+    @endphp
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ $pageTitle }}">
+    <meta property="og:description" content="{{ $pageDescription }}">
+    <meta property="og:url" content="{{ $pageUrl }}">
+    <meta property="og:site_name" content="Yardi Fox">
+    <meta property="og:image" content="{{ $pageImage }}">
+    <meta property="og:image:alt" content="Yardi Fox portfolio preview">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $pageTitle }}">
+    <meta name="twitter:description" content="{{ $pageDescription }}">
+    <meta name="twitter:image" content="{{ $pageImage }}">
+    <meta name="twitter:image:alt" content="Yardi Fox portfolio preview">
+    <meta name="twitter:site" content="{{ $twitterHandle }}">
+    <meta name="twitter:creator" content="{{ $twitterHandle }}">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap">
